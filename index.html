@@ -64,6 +64,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
 
     <!-- Dependencies CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" integrity="sha256-2FMn2Zx6PuH5tdBQDRNwrOo60ts5wWPC9R8jK67b3t4=" crossorigin="anonymous">
@@ -75,7 +76,7 @@
     <script src="./dist/guest.js"></script>
 </head>
 
-<body data-confetti="true" data-time="2025-11-03T09:30:00+07:00" data-audio="./assets/music/pure-love-304010.mp3">
+<body data-confetti="true" data-time="2025-11-02T09:30:00+07:00" data-audio="./assets/music/sound_wedding.mp3">
     <!-- Root Invitation -->
     <div class="row m-0 p-0 opacity-0" id="root">
 
@@ -97,8 +98,8 @@
                 </div>
 
                 <div class="text-center p-4 bg-overlay-auto rounded-5">
-                    <h2 class="font-esthetic mb-4" style="font-size: 2.16rem;">Vũ Minh ❤️ Ngọc Ánh</h2>
-                    <p class="m-0" style="font-size: 1rem;">Chủ nhật, 03 Tháng 11 Năm 2025</p>
+                    <h2 class="font-esthetic mb-4" style="font-size: 2.16rem;">Vũ Minh <i class="fa-solid fa-heart mx-1 fa-heart-fill fa-heart-size"></i> Ngọc Ánh</h2>
+                    <p class="m-0" style="font-size: 1rem;">Chủ nhật, 02 Tháng 11 Năm 2025</p>
                 </div>
             </div>
         </div>
@@ -117,13 +118,8 @@
 
                         <img src="./assets/images/placeholder.webp" data-src="./assets/images/bg.webp" alt="bg" onclick="undangan.guest.modal(this)" class="img-center-crop rounded-circle border border-3 border-light shadow my-4 mx-auto cursor-pointer">
 
-                        <h2 class="font-esthetic my-4" style="font-size: 2.25rem;">Vũ Minh ❤️ Ngọc Ánh</h2>
-                        <p class="my-2" style="font-size: 1.25rem;">Chủ nhật, 03 Tháng 11 Năm 2025</p>
-
-                        <!-- <button class="btn btn-outline-auto btn-sm shadow rounded-pill px-3 py-1" style="font-size: 0.825rem;">
-                            <i class="fa-solid fa-calendar-check me-2"></i>Lưu lịch Google Calendar
-                        </button> -->
-
+                        <h2 class="font-esthetic my-4" style="font-size: 2.25rem;">Vũ Minh <i class="fa-solid fa-heart mx-1 fa-heart-fill fa-heart-size"></i> Ngọc Ánh</h2>
+                        <p class="my-2" style="font-size: 1.25rem;">Chủ nhật, 02 Tháng 11 Năm 2025</p>
                         <div class="d-flex justify-content-center gap-2">
                             <button id="btn-gcal-groom" class="btn btn-outline-auto btn-sm shadow rounded-pill px-3 py-1" style="font-size: .825rem;">
                                 <i class="fa-solid fa-calendar-check me-2"></i>Lưu lịch & Địa điểm nhà trai
@@ -140,7 +136,7 @@
                             </div>
                         </div>
 
-                        <p class="pb-4 m-0 text-secondary" style="font-size: 0.825rem;">Scroll Down</p>
+                        <p class="pb-4 m-0 text-secondary" style="font-size: 0.825rem;">Trượt xuống để xem thêm</p>
                     </div>
                 </section>
 
@@ -153,29 +149,37 @@
 
                 <!-- Bride -->
                 <section class="bg-white-black text-center" id="bride">
-                    <h2 class="font-arabic py-4 m-0 fw-bold" style="font-size: 1.5rem;">❤️Chúng tôi mời bạn đến dự đám cưới của chúng tôi❤️</h2>
-                    <h2 class="font-esthetic py-4 m-0" style="font-size: 2rem;">Assalamualaikum Warahmatullahi Wabarakatuh</h2>
-                    <p class="pb-4 px-2 m-0" style="font-size: 0.95rem;">Tanpa mengurangi rasa hormat, kami mengundang Anda untuk berkenan menghadiri acara pernikahan kami:</p>
+                    <h2 class="font-arabic py-4 m-0 fw-bold" style="font-size: 1.5rem;">❤️ Trân trọng kính mời quý vị đến dự lễ thành hôn của chúng tôi ❤️</h2>
+                    <h2 class="font-esthetic py-4 m-0" style="font-size: 2rem;">Xin kính mời!</h2>
+                    <p class="pb-4 px-2 m-0" style="font-size: 0.95rem;">Sự hiện diện của quý vị là niềm vinh hạnh lớn lao đối với gia đình chúng tôi.</p>
 
                     <div class="overflow-x-hidden pb-4">
 
-                        <div class="position-relative">
-                            <!-- Love animation -->
+                        <div class="position-relative person-card">
+                            <!-- Love -->
                             <div class="position-absolute" style="top: 0%; right: 5%; color: #F14E95">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="opacity-50" data-time="500" data-class="animate-love" viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="opacity-50" data-time="3000" data-class="animate-love" viewBox="0 0 16 16">
                                     <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                                </svg>
+                            </div>
+                            <!-- Love animation -->
+                            <div class="orbit-center" data-delay style="--delay: 0ms;">
+                                <svg class="orbit-heart" viewBox="0 0 16 16" aria-hidden="true">
+                                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                                </svg>
+                            </div>
+                             <div class="orbit-center reverse" data-delay style="--delay: 1200ms;">
+                                <svg class="orbit-heart second" viewBox="0 0 16 16" aria-hidden="true">
+                                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
                                 </svg>
                             </div>
 
                             <div data-aos="fade-right" data-aos-duration="2000" class="pb-1">
                                 <img src="./assets/images/placeholder.webp" data-src="./assets/images/cowo.webp" alt="cowo" onclick="undangan.guest.modal(this)" class="img-center-crop rounded-circle border border-3 border-light shadow my-4 mx-auto cursor-pointer">
-                                <h2 class="font-esthetic m-0" style="font-size: 2.125rem;">Nama Wahyu Siapa</h2>
-                                <p class="mt-3 mb-1" style="font-size: 1.25rem;">Putra ke-1</p>
-                                <p class="mb-0" style="font-size: 0.95rem;">Bapak lorem ipsum</p>
-                                <p class="mb-0" style="font-size: 0.95rem;">dan</p>
-                                <p class="mb-0" style="font-size: 0.95rem;">Ibu lorem ipsum</p>
+                                <h2 class="font-esthetic m-0" style="font-size: 2.125rem;">Vũ Minh</h2>
+                                <p class="mt-3 mb-1" style="font-size: 1rem;">Là một hotboy hài hước, luôn mang nhiều năng lượng tích cực. </p>
+                                <p class="mb-0" style="font-size: 0.95rem;"> Nhưng rồi trái tim ấy đã bị công chúa nhà họ Lê – Ngọc Ánh thâu tóm trọn vẹn.</p> 
                             </div>
-
                             <!-- Love animation -->
                             <div class="position-absolute" style="top: 90%; left: 5%; color: #F14E95">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="opacity-50" data-time="2000" data-class="animate-love" viewBox="0 0 16 16">
@@ -184,23 +188,34 @@
                             </div>
                         </div>
 
-                        <h2 class="font-esthetic mt-4" style="font-size: 4.5rem;">&amp;</h2>
+                        <h2 class="font-esthetic mt-2" style="font-size: 4.5rem;">&amp;</h2>
 
-                        <div class="position-relative">
-                            <!-- Love animation -->
+                        <div class="position-relative person-card">
+                            <!-- Love -->
                             <div class="position-absolute" style="top: 0%; right: 5%; color: #F14E95">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="opacity-50" data-time="3000" data-class="animate-love" viewBox="0 0 16 16">
                                     <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
                                 </svg>
                             </div>
+                            <!-- Love animation -->
+                            <div class="orbit-center" data-delay style="--delay: 0ms;">
+                                <svg class="orbit-heart" viewBox="0 0 16 16" aria-hidden="true">
+                                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                                </svg>
+                            </div>
+                             <div class="orbit-center reverse" data-delay style="--delay: 1200ms;">
+                                <svg class="orbit-heart second" viewBox="0 0 16 16" aria-hidden="true">
+                                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                                </svg>
+                            </div>
 
                             <div data-aos="fade-left" data-aos-duration="2000" class="pb-1">
                                 <img src="./assets/images/placeholder.webp" data-src="./assets/images/cewe.webp" alt="cewe" onclick="undangan.guest.modal(this)" class="img-center-crop rounded-circle border border-3 border-light shadow my-4 mx-auto cursor-pointer">
-                                <h2 class="font-esthetic m-0" style="font-size: 2.125rem;">Nama Riski Siapa</h2>
-                                <p class="mt-3 mb-1" style="font-size: 1.25rem;">Putri ke-2</p>
-                                <p class="mb-0" style="font-size: 0.95rem;">Bapak lorem ipsum</p>
-                                <p class="mb-0" style="font-size: 0.95rem;">dan</p>
-                                <p class="mb-0" style="font-size: 0.95rem;">Ibu lorem ipsum</p>
+                                <h2 class="font-esthetic m-0" style="font-size: 2.125rem;">Ngọc Ánh</h2>
+                                <p class="mt-3 mb-1" style="font-size: 1rem;">Là cô gái hiền dịu, dịu dàng như ánh nắng ban mai. </p>
+                                <p class="mb-0" style="font-size: 0.95rem;"> Trong một ngày đẹp trời, cô đã “vấp ngã” vào trái tim ngọt ngào của hotboy họ Vũ tên Minh.</p>
+                                <!-- <p class="mb-0" style="font-size: 0.95rem;">dan</p>
+                                <p class="mb-0" style="font-size: 0.95rem;">Ibu lorem ipsum</p> -->
                             </div>
 
                             <!-- Love animation -->
@@ -220,19 +235,96 @@
                     </svg>
                 </div>
 
-                <!-- Firman Allah Subhanahu Wa Ta'ala -->
-                <section class="bg-light-dark pt-2 pb-4">
-                    <div class="container text-center">
-                        <h2 class="font-esthetic pt-2 pb-1 m-0" style="font-size: 2rem;">Allah Subhanahu Wa Ta'ala berfirman</h2>
-
-                        <div class="bg-theme-auto mt-4 p-3 shadow rounded-4" data-aos="fade-down" data-aos-duration="2000">
-                            <p class="p-1 mb-2" style="font-size: 0.95rem;">Dan segala sesuatu Kami ciptakan berpasang-pasangan agar kamu mengingat (kebesaran Allah).</p>
-                            <p class="m-0 p-0 text-theme-auto" style="font-size: 0.95rem;">QS. Adh-Dhariyat: 49</p>
+                <!-- Ảnh cưới -->
+                <section class="bg-white-black pb-5 pt-3" id="gallery">
+                    <div class="container">
+                        <div class="border rounded-5 shadow p-3">
+                        <h2 class="font-esthetic text-center m-0 pt-2" style="font-size: 2.25rem;">Album Hình Cưới</h2>
+                        <p class="text-center mt-2 mb-3" style="font-size: 0.95rem;">
+                            “Được ai đó yêu sâu sắc sẽ mang lại cho bạn sức mạnh; còn khi yêu ai đó sâu sắc sẽ cho bạn dũng khí.”
+                        </p>
+                        <!-- Lưới ảnh -->
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3 gallery-grid">
+                            <!-- 1 -->
+                            <div class="col">
+                            <figure class="gallery-card">
+                                <img
+                                src="./assets/images/placeholder.webp"
+                                data-src="https://picsum.photos/800/1000?random=101"
+                                alt="Ảnh cưới 1"
+                                class="w-100 h-100 rounded-4 shadow-sm gallery-img cursor-pointer"
+                                onclick="undangan.guest.modal(this)"
+                                loading="lazy">
+                            </figure>
+                            </div>
+                            <!-- 2 -->
+                            <div class="col">
+                            <figure class="gallery-card">
+                                <img
+                                src="./assets/images/placeholder.webp"
+                                data-src="https://picsum.photos/900/1100?random=102"
+                                alt="Ảnh cưới 2"
+                                class="w-100 h-100 rounded-4 shadow-sm gallery-img cursor-pointer"
+                                onclick="undangan.guest.modal(this)"
+                                loading="lazy">
+                            </figure>
+                            </div>
+                            <!-- 3 -->
+                            <div class="col">
+                            <figure class="gallery-card">
+                                <img
+                                src="./assets/images/placeholder.webp"
+                                data-src="https://picsum.photos/900/1200?random=103"
+                                alt="Ảnh cưới 3"
+                                class="w-100 h-100 rounded-4 shadow-sm gallery-img cursor-pointer"
+                                onclick="undangan.guest.modal(this)"
+                                loading="lazy">
+                            </figure>
+                            </div>
+                            <!-- 4 -->
+                            <div class="col">
+                            <figure class="gallery-card">
+                                <img
+                                src="./assets/images/placeholder.webp"
+                                data-src="https://picsum.photos/900/1100?random=104"
+                                alt="Ảnh cưới 4"
+                                class="w-100 h-100 rounded-4 shadow-sm gallery-img cursor-pointer"
+                                onclick="undangan.guest.modal(this)"
+                                loading="lazy">
+                            </figure>
+                            </div>
+                            <!-- 5 -->
+                            <div class="col">
+                            <figure class="gallery-card">
+                                <img
+                                src="./assets/images/placeholder.webp"
+                                data-src="https://picsum.photos/900/1200?random=105"
+                                alt="Ảnh cưới 5"
+                                class="w-100 h-100 rounded-4 shadow-sm gallery-img cursor-pointer"
+                                onclick="undangan.guest.modal(this)"
+                                loading="lazy">
+                            </figure>
+                            </div>
+                            <!-- 6 -->
+                            <div class="col">
+                            <figure class="gallery-card">
+                                <img
+                                src="./assets/images/placeholder.webp"
+                                data-src="https://picsum.photos/900/1100?random=106"
+                                alt="Ảnh cưới 6"
+                                class="w-100 h-100 rounded-4 shadow-sm gallery-img cursor-pointer"
+                                onclick="undangan.guest.modal(this)"
+                                loading="lazy">
+                            </figure>
+                            </div>
                         </div>
-
-                        <div class="bg-theme-auto mt-4 p-3 shadow rounded-4" data-aos="fade-down" data-aos-duration="2000">
-                            <p class="p-1 mb-2" style="font-size: 0.95rem;">dan sesungguhnya Dialah yang menciptakan pasangan laki-laki dan perempuan,</p>
-                            <p class="m-0 p-0 text-theme-auto" style="font-size: 0.95rem;">QS. An-Najm: 45</p>
+                        <div class="text-center mt-3" id="more-gallery">
+                                <button id="btn-more-photos"
+                                        class="btn btn-outline-auto btn-sm rounded-pill shadow px-3">
+                                    <span class="spinner-border spinner-border-sm me-2 d-none" role="status" aria-hidden="true"></span>
+                                    Xem thêm ảnh
+                                </button>
+                                <small class="d-block mt-2 text-secondary" id="more-hint"></small>
                         </div>
                     </div>
                 </section>
@@ -241,14 +333,10 @@
                 <section class="bg-light-dark pt-2 pb-4">
                     <div class="container">
                         <div class="bg-theme-auto rounded-5 shadow p-3">
-                            <h2 class="font-esthetic text-center py-2 mb-2" style="font-size: 2.125rem;">Kisah Cinta</h2>
-
-                            <!-- Jika tidak ingin menggunakan video, hapus seluruh tag dengan id="video-love-story" di bawah ini. -->
-                            <!-- If you don't want to use the video, remove the entire tag with id="video-love-story" below. -->
-
-                            <div id="video-love-stroy" class="position-relative rounded-4 mb-2 pb-0" data-src="./assets/video/265501_tiny.mp4" data-vid-class="w-100 rounded-4 shadow-sm m-0 p-0">
+                            <h2 class="font-esthetic text-center py-2 mb-2" style="font-size: 2.125rem;">Video cưới của chúng tôi</h2>
+                            <div id="video-love-stroy" class="position-relative rounded-4 mb-2 pb-0" data-src="./assets/video/videoplayback.mp4" data-vid-class="w-100 rounded-4 shadow-sm m-0 p-0">
                                 <div class="position-absolute d-flex flex-column justify-content-center align-items-center top-50 start-50 translate-middle w-100 h-100 bg-overlay-auto rounded-4 z-3" id="video-love-stroy-loading">
-                                    <div class="progress w-25" role="progressbar" style="height: 0.5rem;" aria-label="progress bar">
+                                    <div class="progress" style="height: 0.5rem;" aria-label="progress bar">
                                         <div class="progress-bar" id="progress-bar-video-love-stroy" style="width: 0%;"></div>
                                     </div>
                                     <small class="mt-1 text-theme-auto bg-theme-auto py-0 px-2 rounded-4" id="progress-info-video-love-stroy" style="font-size: 0.7rem;"></small>
@@ -257,7 +345,7 @@
 
                             <div class="position-relative">
                                 <div class="position-absolute d-flex justify-content-center align-items-center top-50 start-50 translate-middle w-100 h-100 bg-overlay-auto z-3" style="opacity: 100%; background-color: unset;">
-                                    <button class="btn btn-outline-auto btn-sm rounded-4 shadow-sm" onclick="undangan.guest.showStory(this.parentNode)"><i class="fa-solid fa-heart fa-bounce me-2"></i>Lihat Story</button>
+                                    <button class="btn btn-outline-auto btn-sm rounded-4 shadow-sm" onclick="undangan.guest.showStory(this.parentNode)"><i class="fa-solid fa-heart fa-bounce me-2 fa-heart-fill"></i>Mở câu chuyện</button>
                                 </div>
 
                                 <div class="overflow-y-scroll overflow-x-hidden p-2 with-scrollbar" style="height: 15rem;">
@@ -267,9 +355,10 @@
                                             <hr class="position-absolute top-0 start-50 translate-middle-x border border-secondary h-100 z-0 opacity-100 m-0 rounded-4 shadow-none">
                                         </div>
                                         <div class="col mt-1 mb-3 ps-0">
-                                            <p class="fw-bold mb-2">💼 Awal Pertemuan Sederhana</p>
+                                            <p class="fw-bold mb-2">💌 Tình yêu chớm nở bằng tin nhắn online đầu tiên</p>
                                             <p class="small mb-0">
-                                                Pada Januari 2025, Wahyu, seorang desainer grafis berusia 28 tahun, bertemu Riski, copywriter yang dikenal cerdas dan pendiam, dalam proyek branding perusahaan. Interaksi mereka di ruang rapat terbatas pada urusan kerja, penuh adab dan profesional. Tanpa Wahyu ketahui, Riski sebenarnya pernah melihat karya desain Wahyu di lomba nasional dua tahun lalu dan kagum dengan bakatnya. Namun, sesuai prinsipnya, Riski menjaga jarak dan hanya fokus pada tugas, menghindari interaksi yang tidak perlu.
+                                                 Chúng ta bắt đầu bằng những dòng tin nhắn giản dị, những cuộc gọi đêm khuya, và những lần “online” tưởng chừng bình thường mà lại gieo vào tim nhau những nhịp rung rất thật. 
+                                                 Ngày <strong>22/10</strong>, anh nói “Anh yêu Ánh” — không phải lời hứa hẹn ồn ào, chỉ là một câu ngắn gọn nhưng làm cả bầu trời trong anh sáng hơn.
                                             </p>
                                         </div>
                                     </div>
@@ -279,9 +368,12 @@
                                             <hr class="position-absolute top-0 start-50 translate-middle-x border border-secondary h-100 z-0 opacity-100 m-0 rounded-4 shadow-none">
                                         </div>
                                         <div class="col mt-1 mb-3 ps-0">
-                                            <p class="fw-bold mb-2">💞 Benih Cinta dalam Ujian</p>
-                                            <p class="small mb-0">
-                                                Memasuki Februari 2025, proyek mereka menghadapi krisis: klien menolak konsep awal dan mengancam membatalkan kontrak. Di tengah tekanan, Riski tampil dengan solusi kreatif yang menyelamatkan proyek, membuat Wahyu terkesan dengan ketenangan dan kecerdasannya. Diam-diam, Wahyu mulai memperhatikan Riski lebih dalam, terutama melalui unggahan media sosialnya yang penuh dengan nilai keimanan dan kesabaran. Merasa ada kesamaan visi, Wahyu beristikharah dan memutuskan memulai taaruf. Ia menghubungi seorang ustaz terpercaya sebagai perantara. Kejutan muncul saat Riski mengaku bahwa ia juga telah lama memperhatikan Wahyu, namun menahan diri hingga ada niat yang jelas, sebuah pengakuan yang membuat hati Wahyu hangat.
+                                            <p class="fw-bold mb-2">☕ Ngày đầu tiên – Hà Nội, nơi chúng ta hẹn hò</p>
+                                             <p class="small mb-0">
+                                                Xa xa, đằng sau những dãy núi mờ sương và các toà nhà kiêu hãnh của Hà Nội, chúng ta gặp nhau vào một ngày thật đẹp: 
+                                                <em>ngày 09/06/2023</em>. 
+                                                Cốc cà phê ấm, nụ cười nhẹ, và cảm giác “đúng người” khiến cuộc hẹn đầu giản dị mà đáng nhớ. 
+                                                Từ khoảnh khắc ấy, câu chuyện của chúng ta không còn ở sau màn hình nữa.
                                             </p>
                                         </div>
                                     </div>
@@ -291,9 +383,23 @@
                                             <hr class="position-absolute top-0 start-50 translate-middle-x border border-secondary h-100 z-0 opacity-100 m-0 rounded-4 shadow-none">
                                         </div>
                                         <div class="col mt-1 mb-3 ps-0">
-                                            <p class="fw-bold mb-2">💍 Langkah Menuju Ridha Allah</p>
+                                            <p class="fw-bold mb-2">🌿 Trong Một Mối Quan Hệ – Gần 3 năm rất nhiều điều</p>
                                             <p class="small mb-0">
-                                                Proses taaruf berjalan penuh keikhlasan, dengan pendamping yang memastikan setiap langkah sesuai syariat. Wahyu dan Riski saling terbuka tentang impian membangun keluarga yang diridhai Allah. Namun, sebuah ujian datang: keluarga Riski ragu karena latar belakang ekonomi Wahyu yang sederhana. Di sinilah plot twist terungkap—Wahyu mempresentasikan rencana usaha sosial berbasis seni yang telah ia kembangkan diam-diam, menunjukkan visinya untuk memberi manfaat bagi umat. Presentasi itu meluluhkan hati keluarga Riski. Pada Maret 2025, setelah istikharah dan mendapat restu keluarga, Wahyu melamar Riski dalam acara sederhana namun penuh makna. Dengan niat tulus, mereka melangkah menuju pernikahan, yakin bahwa Allah telah merajut kisah mereka dengan indah.
+                                                <strong>Gần 3 năm</strong> bên nhau không dài đến mức kể hoài không hết, nhưng đủ để chúng ta hiểu nhau, học cách yêu thương và cùng nhau vượt qua những thử thách. 
+                                                 Từ hai người xa lạ bước vào đời nhau, chúng ta chậm rãi vun đắp hạnh phúc nhỏ, kiên nhẫn lớn lên trong lòng nhau mỗi ngày.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-auto position-relative">
+                                            <p class="position-relative d-flex justify-content-center align-items-center bg-theme-auto border border-secondary border-2 opacity-100 rounded-circle m-0 p-0 z-1" style="width: 2rem; height: 2rem;">4</p>
+                                            <hr class="position-absolute top-0 start-50 translate-middle-x border border-secondary h-100 z-0 opacity-100 m-0 rounded-4 shadow-none">
+                                        </div>
+                                        <div class="col mt-1 mb-3 ps-0">
+                                            <p class="fw-bold mb-2">💍 Chương mới – Cùng nhau về chung một nhà</p>
+                                            <p class="small mb-0">
+                                            Khi “chúng ta” đã là lựa chọn, đám cưới chỉ còn là chuyện sớm muộn. 
+                                            Từ ngày 22/10 ấy đến hôm nay, lời hẹn ước dần thành hiện thực: chúng ta nắm tay nhau mở ra chương mới — đủ bình yên để trú ngụ, đủ ngọt ngào để mỉm cười mỗi sớm mai.
                                             </p>
                                         </div>
                                     </div>
@@ -313,8 +419,8 @@
                 <!-- Wedding Date -->
                 <section class="bg-white-black pb-2" id="wedding-date">
                     <div class="container text-center">
-                        <h2 class="font-esthetic py-4 m-0" style="font-size: 2.25rem;">Moment Bahagia</h2>
-
+                        <h2 class="font-esthetic py-4 m-0" style="font-size: 2.25rem;">Ngày Trọng Đại</h2>
+                         <!-- Countdown (giữ nguyên layout của bạn) -->
                         <div class="border rounded-pill shadow py-2 px-4 mt-2 mb-4">
                             <div class="row justify-content-center">
                                 <div class="col-3 p-1">
@@ -331,94 +437,37 @@
                                 </div>
                             </div>
                         </div>
-
-                        <p class="py-2 m-0" style="font-size: 0.95rem;">Dengan memohon rahmat dan ridho Allah Subhanahu Wa Ta'ala, insyaAllah kami akan menyelenggarakan acara:</p>
-
-                        <!-- Love animation -->
-                        <div class="position-relative">
-                            <div class="position-absolute" style="top: 0%; right: 5%; color: #F14E95">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="opacity-50" data-time="3000" data-class="animate-love" viewBox="0 0 16 16">
-                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
-                                </svg>
+                        <!-- Calendar -->
+                        <div id="mini-calendar" class="wm-cal card shadow rounded-4 mx-auto mb-4"></div>
+                       
+                        <!-- Map -->
+                         <div class="d-flex gap-2" style="justify-content: space-evenly;">
+                            <div class="py-2" data-aos="fade-down" data-aos-duration="1500">
+                                <h5>Địa điểm Nhà Trai</h5>
+                                <small class="d-block my-1">Thôn Đồng Lạng - Xã Ngọc Thiện- Tỉnh Bắc Ninh</small>
+                                <a href="https://maps.app.goo.gl/dteVCpQTWYcy44QX8" target="_blank" class="btn btn-outline-auto btn-sm rounded-pill shadow mb-2 px-3"><i class="fa-solid fa-map-location-dot me-2"></i>Google Maps</a>
                             </div>
-                        </div>
-
-                        <div class="overflow-x-hidden">
-                            <div class="py-2" data-aos="fade-right" data-aos-duration="1500">
-                                <h2 class="font-esthetic m-0 py-2" style="font-size: 2rem;">Akad</h2>
-                                <p style="font-size: 0.95rem;">Pukul 10.00 WIB - Selesai</p>
+                             <div class="py-2" data-aos="fade-down" data-aos-duration="1500">
+                                <h5>Địa điểm Nhà Gái</h5>
+                                 <small class="d-block my-1">Thôn Hàng Cơm - Xã Tân Yên, Bắc Ninh</small>
+                                <a href="https://maps.app.goo.gl/QMdFKHh6Kh1g8NE87" target="_blank" class="btn btn-outline-auto btn-sm rounded-pill shadow mb-2 px-3"><i class="fa-solid fa-map-location-dot me-2"></i>Google Maps</a>
                             </div>
+                         </div>
 
-                            <div class="py-2" data-aos="fade-left" data-aos-duration="1500">
-                                <h2 class="font-esthetic m-0 py-2" style="font-size: 2rem;">Resepsi</h2>
-                                <p style="font-size: 0.95rem;">Pukul 13.00 WIB - Selesai</p>
-                            </div>
-                        </div>
-
-                        <p class="py-2 m-0" style="font-size: 0.95rem;">Demi kehangatan bersama, kami memohon kesediaan Anda untuk mengenakan dress code berikut:</p>
-
-                        <!-- Love animation -->
-                        <div class="position-relative">
-                            <div class="position-absolute" style="top: 0%; left: 7%; color: #F14E95">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="opacity-50" data-time="2000" data-class="animate-love" viewBox="0 0 16 16">
-                                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
-                                </svg>
-                            </div>
-                        </div>
-
-                        <div class="py-2" data-aos="fade-down" data-aos-duration="1500">
-                            <div class="d-flex justify-content-center align-items-center mb-3">
-                                <div class="shadow rounded-circle border border-secondary" style="width: 3rem; height: 3rem; background-color: white;"></div>
-                                <div class="shadow rounded-circle border border-secondary" style="width: 3rem; height: 3rem; background-color: aquamarine; margin-left: -1rem;"></div>
-                                <div class="shadow rounded-circle border border-secondary" style="width: 3rem; height: 3rem; background-color: limegreen; margin-left: -1rem;"></div>
-                            </div>
-                            <p style="font-size: 0.95rem;">Busana batik dan bersepatu.</p>
-                        </div>
-
-                        <div class="py-2" data-aos="fade-down" data-aos-duration="1500">
-                            <a href="https://goo.gl/maps/ALZR6FJZU3kxVwN86" target="_blank" class="btn btn-outline-auto btn-sm rounded-pill shadow mb-2 px-3"><i class="fa-solid fa-map-location-dot me-2"></i>Lihat Google Maps</a>
-                            <small class="d-block my-1">RT 10 RW 02, Desa Pajerukan, Kec. Kalibagor, Kab. Banyumas, Jawa Tengah 53191.</small>
-                        </div>
                     </div>
                 </section>
 
                 <!-- Gallery -->
-                <section class="bg-white-black pb-5 pt-3" id="gallery">
+                <section class="bg-white-black pb-2 pt-3" id="gallery">
                     <div class="container">
                         <div class="border rounded-5 shadow p-3">
-
-                            <h2 class="font-esthetic text-center py-2 m-0" style="font-size: 2.25rem;">Galeri</h2>
-
-                            <div id="carousel-image-one" data-aos="fade-up" data-aos-duration="1500" class="carousel slide mt-4" data-bs-ride="carousel">
-                                <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#carousel-image-one" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                                    <button type="button" data-bs-target="#carousel-image-one" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                    <button type="button" data-bs-target="#carousel-image-one" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                                </div>
-
-                                <div class="carousel-inner rounded-4">
-                                    <div class="carousel-item active">
-                                        <img src="./assets/images/placeholder.webp"  alt="image 1" class="d-block img-fluid cursor-pointer" onclick="undangan.guest.modal(this)">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./assets/images/placeholder.webp"  alt="image 2" class="d-block img-fluid cursor-pointer" style="width: 1280/720;" onclick="undangan.guest.modal(this)">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./assets/images/placeholder.webp" data-src="https://picsum.photos/1280/720?random=3" alt="image 3" class="d-block img-fluid cursor-pointer" onclick="undangan.guest.modal(this)">
-                                    </div>
-                                </div>
-
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel-image-one" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel-image-one" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
+                            <h2 class="font-esthetic text-center py-2 m-0" style="font-size: 2.25rem;">Lời ngỏ</h2>
+                             <div class="wm-letter__body mt-4">
+                                <p>Gửi đến những người thân, những người bạn, những tấm lòng đã gắn bó cùng chúng tôi,</p>
+                                <p>Giữa nhịp sống vội vã, sự hiện diện của anh chị, bạn bè và các em trong ngày hôm nay là niềm hạnh phúc lớn lao.</p>
+                                <p>Mỗi ánh mắt, nụ cười và lời chúc phúc là một điều ấm áp chúng tôi sẽ ghi nhớ mãi.</p>
+                                <p>Từ tận đáy lòng, xin cảm ơn vì đã đến — để cùng chúng tôi viết tiếp câu chuyện hạnh phúc này!</p>
                             </div>
-
                             <div id="carousel-image-two" data-aos="fade-up" data-aos-duration="1500" class="carousel slide mt-4" data-bs-ride="carousel">
                                 <div class="carousel-indicators">
                                     <button type="button" data-bs-target="#carousel-image-two" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -460,89 +509,95 @@
                 </div>
 
                 <!-- Love Gift -->
-                <section class="bg-light-dark pb-3">
-                    <div class="container text-center">
-                        <h2 class="font-esthetic pt-3 mb-4" style="font-size: 2.25rem;">Love Gift</h2>
-                        <p class="mb-1" style="font-size: 0.95rem;">Dengan hormat, bagi Anda yang ingin memberikan tanda kasih kepada kami, dapat melalui:</p>
+                   <section class="bg-light-dark pb-3" id="gift">
+                            <div class="bg-theme-auto rounded-4 shadow p-3 mx-4 mt-4 text-start" data-aos="fade-up" data-aos-duration="2500">
+                                <h2 class="font-esthetic pt-3 mb-1 text-center" style="font-size: 2.25rem;">Hộp mừng cưới</h2>
+                                <p class="mb-1 text-center" style="font-size: 0.95rem;">Thật vui vì được gặp và đón tiếp các bạn trong một dịp đặc biệt như đám cưới của chúng tôi.</p>
 
-                        <div class="bg-theme-auto rounded-4 shadow p-3 mx-4 mt-4 text-start" data-aos="fade-up" data-aos-duration="2500">
-                            <i class="fa-solid fa-money-bill-transfer"></i>
-                            <p class="d-inline">Transfer</p>
-
-                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                <p class="m-0 p-0" style="font-size: 0.95rem;"><i class="fa-regular fa-user fa-sm me-1"></i>Riski Siapa?</p>
-                                <button class="btn btn-outline-auto btn-sm shadow-sm rounded-4 py-0" style="font-size: 0.75rem;" data-bs-toggle="collapse" data-bs-target="#collapseTf"><i class="fa-solid fa-circle-info fa-sm me-1"></i>Info</button>
-                            </div>
-
-                            <div class="collapse" id="collapseTf">
-                                <hr class="my-2 py-1">
-                                <p class="m-0" style="font-size: 0.9rem;"><i class="fa-solid fa-building-columns me-1"></i>Bank Central Asia</p>
-                                <div class="d-flex justify-content-between align-items-center mt-2">
-                                    <p class="m-0 p-0" style="font-size: 0.85rem;"><i class="fa-solid fa-credit-card me-1"></i>1234567891234</p>
-                                    <!-- Ubah juga data-copy sesuai dengan no rekening -->
-                                    <button class="btn btn-outline-auto btn-sm shadow-sm rounded-4 py-0" style="font-size: 0.75rem;" data-copy="1234567891234" onclick="undangan.util.copy(this)"><i class="fa-solid fa-copy"></i></button>
+                                <!-- 2 QR: Nhà trai - Nhà gái -->
+                                <div class="row g-3 justify-content-center">
+                                <!-- Nhà trai -->
+                                <div class="col-12 col-md-6">
+                                    <div class="qr-card h-100">
+                                    <h5 class="qr-title">Đến Chú Rể</h5>
+                                    <div class="qr-box">
+                                         <img src="./assets/images/placeholder.webp" data-src="./assets/images/donate.png" alt="donate" class="img-fluid rounded-3 mx-auto bg-white qr-img">
+                                    </div>
+                                    <div class="qr-info">
+                                        <p><strong>Ngân hàng:</strong> VPBank</p>
+                                        <p><strong>Tên tài khoản:</strong> Hoàng Kiến Văn</p>
+                                        <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                        <p class="m-0"><strong>Số tài khoản:</strong> <span class="txt-copy">12345678910</span></p>
+                                        <button class="btn btn-outline-auto btn-sm shadow-sm rounded-4 py-0"
+                                                data-copy="12345678910" onclick="undangan.util.copy(this)">
+                                            <i class="fa-solid fa-copy me-1"></i>Copy
+                                        </button>
+                                        </div>
+                                        <p class="mt-2 mb-0"><strong>Chi nhánh:</strong> TP.HCM</p>
+                                    </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-theme-auto rounded-4 shadow p-3 mx-4 mt-4 text-start" data-aos="fade-up" data-aos-duration="2500">
-                            <i class="fa-solid fa-qrcode fa-lg"></i>
-                            <p class="d-inline">Qris</p>
-
-                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                <p class="m-0 p-0" style="font-size: 0.95rem;"><i class="fa-regular fa-user fa-sm me-1"></i>Wahyu Siapa?</p>
-                                <button class="btn btn-outline-auto btn-sm shadow-sm rounded-4 py-0" style="font-size: 0.75rem;" data-bs-toggle="collapse" data-bs-target="#collapseQris"><i class="fa-solid fa-circle-info fa-sm me-1"></i>Info</button>
-                            </div>
-
-                            <div class="collapse" id="collapseQris">
-                                <hr class="my-2 py-1">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <img src="./assets/images/placeholder.webp" data-src="./assets/images/donate.png" alt="donate" class="img-fluid rounded-3 mx-auto bg-white">
+                                <!-- Nhà gái -->
+                                <div class="col-12 col-md-6">
+                                    <div class="qr-card h-100">
+                                    <h5 class="qr-title">Đến Cô Dâu</h5>
+                                    <div class="qr-box">
+                                         <img src="./assets/images/placeholder.webp" data-src="./assets/images/donate.png" alt="donate" class="img-fluid rounded-3 mx-auto bg-white qr-img">
+                                    </div>
+                                    <div class="qr-info">
+                                        <p><strong>Ngân hàng:</strong> VPBank</p>
+                                        <p><strong>Tên tài khoản:</strong> Ngô Việt Hoài</p>
+                                        <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                        <p class="m-0"><strong>Số tài khoản:</strong> <span class="txt-copy">98765432100</span></p>
+                                        <button class="btn btn-outline-auto btn-sm shadow-sm rounded-4 py-0"
+                                                data-copy="98765432100" onclick="undangan.util.copy(this)">
+                                            <i class="fa-solid fa-copy me-1"></i>Copy
+                                        </button>
+                                        </div>
+                                        <p class="mt-2 mb-0"><strong>Chi nhánh:</strong> TP.HCM</p>
+                                    </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="bg-theme-auto rounded-4 shadow p-3 mx-4 mt-4 text-start" data-aos="fade-up" data-aos-duration="2500">
-                            <i class="fa-solid fa-qrcode fa-lg"></i>
-                            <p class="d-inline">Qris1</p>
-
-                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                <p class="m-0 p-0" style="font-size: 0.95rem;"><i class="fa-regular fa-user fa-sm me-1"></i>Wahyu Siapa?</p>
-                                <button class="btn btn-outline-auto btn-sm shadow-sm rounded-4 py-0" style="font-size: 0.75rem;" data-bs-toggle="collapse" data-bs-target="#collapseQris1"><i class="fa-solid fa-circle-info fa-sm me-1"></i>Info</button>
-                            </div>
-
-                            <div class="collapse" id="collapseQris1">
-                                <hr class="my-2 py-1">
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <img src="./assets/images/placeholder.webp" data-src="./assets/images/donate.png" alt="donate" class="img-fluid rounded-3 mx-auto bg-white">
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="bg-theme-auto rounded-4 shadow p-3 mx-4 mt-4 text-start" data-aos="fade-up" data-aos-duration="2500">
-                            <i class="fa-solid fa-gift fa-lg"></i>
-                            <p class="d-inline">Gift</p>
-
-                            <div class="d-flex justify-content-between align-items-center mt-2">
-                                <p class="m-0 p-0" style="font-size: 0.95rem;"><i class="fa-regular fa-user fa-sm me-1"></i>Wahyu Siapa?</p>
-                                <button class="btn btn-outline-auto btn-sm shadow-sm rounded-4 py-0" style="font-size: 0.75rem;" data-bs-toggle="collapse" data-bs-target="#collapseGift"><i class="fa-solid fa-circle-info fa-sm me-1"></i>Info</button>
-                            </div>
-
-                            <div class="collapse" id="collapseGift">
-                                <hr class="my-2 py-1">
-                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <p class="m-0 p-0" style="font-size: 0.85rem;"><i class="fa-solid fa-phone-volume me-1"></i>0812345678</p>
-                                    <!-- Ubah juga data-copy sesuai dengan no hp -->
-                                    <button class="btn btn-outline-auto btn-sm shadow-sm rounded-4 py-0" style="font-size: 0.75rem;" data-copy="0812345678" onclick="undangan.util.copy(this)"><i class="fa-solid fa-copy"></i></button>
+                                <hr class="my-4">
+                                <!-- Thông tin liên hệ (thay cho Gift) -->
+                                <h3 class="text-center mb-3" style="font-size: 1.25rem;">Thông tin liên hệ</h3>
+                                <div class="row g-3">
+                                <div class="col-12 col-md-6">
+                                    <div class="contact-card h-100">
+                                    <h6 class="mb-2 fw-bold">Nhà trai</h6>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <p class="m-0"><i class="fa-solid fa-phone-volume me-2"></i><span class="txt-copy">0901 234 567</span></p>
+                                        <button class="btn btn-outline-auto btn-sm shadow-sm rounded-4 py-0"
+                                                data-copy="0901234567" onclick="undangan.util.copy(this)">
+                                        <i class="fa-solid fa-copy me-1"></i>Copy
+                                        </button>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <p class="m-0 me-2"><i class="fa-solid fa-location-dot me-2"></i><span>Thôn Đồng Lạng, Xã Ngọc Thiện, Tân Yên, Bắc Giang</span></p>
+                                    </div>
+                                    </div>
                                 </div>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <p class="my-0 p-0 text-truncate me-2" style="font-size: 0.85rem;"><i class="fa-solid fa-location-dot me-1"></i>RT 10 RW 02, Desa Pajerukan, Kec. Kalibagor, Kab. Banyumas, Jawa Tengah 53191.</p>
-                                    <!-- Ubah juga data-copy sesuai dengan alamat -->
-                                    <button class="btn btn-outline-auto btn-sm shadow-sm rounded-4 py-0" style="font-size: 0.75rem;" data-copy="RT 10 RW 02, Desa Pajerukan, Kec. Kalibagor, Kab. Banyumas, Jawa Tengah 53191." onclick="undangan.util.copy(this)"><i class="fa-solid fa-copy"></i></button>
+
+                                <div class="col-12 col-md-6">
+                                    <div class="contact-card h-100">
+                                    <h6 class="mb-2 fw-bold">Nhà gái</h6>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <p class="m-0"><i class="fa-solid fa-phone-volume me-2"></i><span class="txt-copy">0912 345 678</span></p>
+                                        <button class="btn btn-outline-auto btn-sm shadow-sm rounded-4 py-0"
+                                                data-copy="0912345678" onclick="undangan.util.copy(this)">
+                                        <i class="fa-solid fa-copy me-1"></i>Copy
+                                        </button>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <p class="m-0 me-2"><i class="fa-solid fa-location-dot me-2"></i><span>Thôn Hàng Cơm, Xã Việt Lập, Tân Yên, Bắc Giang</span></p>
+                                    </div>
+                                    </div>
                                 </div>
+                                </div>
+
                             </div>
-                        </div>
-                    </div>
-                </section>
+                    </section>
 
                 <!-- Comment -->
                 <section class="bg-light-dark my-0 pb-0 pt-3" id="comment" hidden>
@@ -605,19 +660,83 @@
                     </svg>
                 </div>
 
+                <!-- confirm information Xác nhận tham dự Đám cưới của  Vũ Minh & Ngọc ánh -->
+                <section class="bg-white-black pb-4 pt-3" id="confirm-information">
+                    <div class="container">
+                        <h2 class="font-esthetic text-center mb-3" style="font-size:2.25rem;">Xác nhận tham dự</h2>
+
+                        <p class="text-center mb-3">Đám cưới của <strong>Vũ Minh &amp; Ngọc Ánh</strong></p>
+
+                        <!-- 2 nút chọn bên -->
+                        <div class="d-flex justify-content-center gap-2 mb-3">
+                        <button id="btn-rsvp-groom" class="btn btn-outline-auto btn-sm rounded-pill shadow px-3">
+                            <i class="fa-solid fa-champagne-glasses me-2"></i>Tham dự tiệc <b>nhà trai</b>
+                        </button>
+                        <span><i class="fa-solid fa-heart mx-1 fa-heart-fill"></i></span>
+                        <button id="btn-rsvp-bride" class="btn btn-outline-auto btn-sm rounded-pill shadow px-3">
+                            <i class="fa-solid fa-champagne-glasses me-2"></i>Tham dự tiệc <b>nhà gái</b>
+                        </button>
+                        </div>
+
+                        <!-- form RSVP (ẩn mặc định) -->
+                        <div id="rsvp-card" class="card shadow rounded-4 mx-auto" style="max-width:620px; display:none;">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center justify-content-between">
+                            <h5 class="m-0">
+                                Xác nhận tham dự: <span id="rsvp-side" class="badge text-bg-secondary">—</span>
+                            </h5>
+                            <button type="button" id="rsvp-close" class="btn btn-sm btn-link text-decoration-none">
+                                Đổi bên
+                            </button>
+                            </div>
+                            <hr class="my-3">
+
+                            <form id="rsvp-form" novalidate>
+                            <input type="hidden" name="side" id="input-side" value="">
+                            <div class="mb-3">
+                                <label class="form-label">Họ và tên</label>
+                                <input type="text" class="form-control rounded-4 shadow-sm" name="name" id="input-name"
+                                    placeholder="Nhập họ tên của bạn" minlength="2" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Số điện thoại</label>
+                                <input type="tel" class="form-control rounded-4 shadow-sm" name="phone" id="input-phone"
+                                    placeholder="Ví dụ: 09xxxxxxxx" pattern="^[0-9\s\+\-]{8,15}$" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Trạng thái</label>
+                                <select class="form-select rounded-4 shadow-sm" name="status" id="input-status" required>
+                                <option value="" selected disabled>Chọn trạng thái</option>
+                                <option value="yes">✅ Có tham dự</option>
+                                <option value="maybe">🤝 Chưa xác định</option>
+                                <option value="no">❌ Không tham dự</option>
+                                </select>
+                            </div>
+
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-sm rounded-4 shadow">
+                                <i class="fa-solid fa-paper-plane me-2"></i>Xác nhận
+                                </button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+
+                        <!-- thông báo -->
+                        <div id="rsvp-alert" class="alert alert-success rounded-4 mt-3 d-none" role="alert"></div>
+                    </div>
+                </section>
+
                 <!-- End Of Invitation -->
                 <section class="bg-white-black py-2 no-gap-bottom">
                     <div class="container text-center">
-                        <p class="pb-2 pt-4" style="font-size: 0.95rem;">Terima kasih atas perhatian dan doa restu Anda, yang menjadi kebahagiaan serta kehormatan besar bagi kami.</p>
-
-                        <h2 class="font-esthetic" style="font-size: 2rem;">Wassalamualaikum Warahmatullahi Wabarakatuh</h2>
-                        <h2 class="font-arabic pt-4" style="font-size: 2rem;">اَلْحَمْدُ لِلّٰهِ رَبِّ الْعٰلَمِيْنَۙ</h2>
-
+                        <h2 class="font-esthetic" style="font-size: 2rem;">Thank you!</h2>
                         <hr class="my-3">
-
                         <div class="row align-items-center justify-content-between flex-column pb-3">
                             <div class="col-auto">
-                                <small>Build with<i class="fa-solid fa-heart mx-1"></i>Dewanakl</small>
+                                <small>Vũ Minh<i class="fa-solid fa-heart mx-1 fa-heart-fill"></i>Ngọc Ánh</small>
                             </div>
                         </div>
                     </div>
@@ -646,9 +765,15 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#bride">
-                            <i class="fa-solid fa-user-group"></i>
-                            <span class="d-block" style="font-size: 0.7rem;">Mempelai</span>
+                        <a class="nav-link" href="#gift">
+                            <i class="fa-solid fa-gift"></i>
+                            <span class="d-block" style="font-size: 0.7rem;">Quà cưới</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#confirm-information">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span class="d-block" style="font-size: 0.7rem;">Xác nhận tham dự</span>
                         </a>
                     </li>
                 </ul>
@@ -663,7 +788,7 @@
                 <h2 class="font-esthetic mb-4 " style="font-size: 2.75rem;">The Wedding Of</h2>
                 <img src="./assets/images/placeholder.webp" data-src="./assets/images/bg.webp" alt="background" class="img-center-crop rounded-circle border border-3 border-light shadow mb-4 mx-auto">
 
-                <h2 class="font-esthetic mb-4 fw-bold" style="font-size: 2.75rem;">Vũ Minh ❤️ Ngọc Ánh</h2>
+                <h2 class="font-esthetic mb-4 fw-bold" style="font-size: 2.5rem;">Vũ Minh <i class="fa-solid fa-heart mx-1 fa-heart-fill fa-heart-size"></i> Ngọc Ánh</h2>
                 <div id="guest-name" data-message="Kepada Yth Bapak/Ibu/Saudara/i"></div>
                 <button type="button" class="btn btn-light shadow rounded-4 mt-3 mx-auto" onclick="undangan.guest.open(this)"><i class="fa-solid fa-envelope-open fa-bounce me-2"></i>Mở thiệp cưới</button>
             </div>

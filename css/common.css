@@ -1,7 +1,9 @@
+
 html {
     scroll-behavior: smooth !important;
     width: 100vw !important;
 }
+
 
 body {
     font-family: 'Roboto', sans-serif !important;
@@ -105,6 +107,11 @@ html[data-bs-theme="light"] .bg-overlay-auto {
     background-color: rgba(var(--bs-white-rgb), 0.5);
     backdrop-filter: blur(0.25rem);
 }
+.btn:hover {
+    color: rgb(var(--bs-dark-rgb));
+    background-color: #b1b1b0;
+    border-color: #b1b1b0;
+}
 
 .hover-area {
     display: none;
@@ -117,4 +124,91 @@ html[data-bs-theme="light"] .bg-overlay-auto {
 
 .gif-image {
     max-height: 10rem;
+}
+.person-card {
+  position: relative;
+}
+
+.person-card .portrait {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/*  */
+
+/* ===== ORBIT HEART with existing HTML ===== */
+:root{
+  --love-size: 20px;
+  --love-color: #F14E95;
+  --orbit-gap: 20px;            /* khoảng cách tim so với viền ảnh */
+  --orbit-duration: 8s;
+}
+
+/* block bạn đã có */
+.person-card { 
+  position: relative; 
+  /* Tham số căn tâm ảnh: 18rem theo .img-center-crop + margin-top theo my-4 + bề dày viền */
+  --img-size: 18rem;            /* đúng với .img-center-crop */
+  --img-mt: 1.5rem;             /* Bootstrap my-4 = 1.5rem */
+  --img-border: 3px;            /* .border-3 ~ 3px */
+  /* Tinh chỉnh nhỏ nếu còn lệch */
+  --orbit-fix-x: 0px;           /* + sang phải, - sang trái */
+  --orbit-fix-y: 0px;           /* + xuống, - lên */
+}
+
+/* Tâm quay đặt theo tâm ảnh bên trong .person-card (không cần bọc thêm) */
+.person-card .orbit-center{
+  position: absolute;
+  left: calc(50% + var(--orbit-fix-x));
+  top: calc(var(--img-mt) + var(--img-border) + (var(--img-size) / 2) + var(--orbit-fix-y));
+  width: 0; height: 0;
+  transform: translate(-50%, -50%);
+  animation: orbit-rotate var(--orbit-duration) linear infinite;
+  will-change: transform;
+  pointer-events: none;
+  z-index: 3; /* trên ảnh */
+}
+.person-card .orbit-center.reverse { animation-direction: reverse; }
+.person-card .orbit-center { animation-delay: var(--delay, 0ms); }
+
+/* Bán kính quỹ đạo: bán kính ảnh + khoảng cách */
+.person-card { --orbit-r: calc((var(--img-size) / 2) + var(--orbit-gap)); }
+
+/* Icon tim trên quỹ đạo */
+.person-card .orbit-heart{
+  position: absolute;
+  left: var(--orbit-r);
+  top: 0;
+  width: var(--love-size);
+  height: var(--love-size);
+  transform: translate(-50%, -50%);
+  color: var(--love-color);
+  opacity: .9;
+  filter: drop-shadow(0 0 6px rgba(241,78,149,.35));
+}
+/* BẮT BUỘC: path dùng currentColor -> hết màu đen */
+.person-card .orbit-heart path { fill: currentColor; }
+
+/* Tim đối diện (180°) nếu muốn dùng .second như bạn */
+.person-card .orbit-heart.second{
+  left: calc(var(--orbit-r) * -1);
+  top: 0;
+}
+
+/* Quỹ đạo */
+@keyframes orbit-rotate{
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* responsive tinh chỉnh nhẹ cho mobile (do line-height/spacing khác) */
+@media (max-width: 576px){
+  .person-card{
+    --orbit-fix-y: 2px;   /* chỉnh nếu thấy lệch 1–2px trên mobile */
+  }
+}
+
+/* reduce motion */
+@media (prefers-reduced-motion: reduce){
+  .person-card .orbit-center{ animation: none !important; }
 }

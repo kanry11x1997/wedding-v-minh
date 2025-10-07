@@ -13,6 +13,8 @@ import { offline } from '../../common/offline.js';
 import { comment } from '../components/comment.js';
 import * as confetti from '../../libs/confetti.js';
 import { pool } from '../../connection/request.js';
+import { galleryMore } from './gallery-more.js';
+import { confirmInfo } from './comfirmInfor.js';
 
 export const guest = (() => {
 
@@ -103,6 +105,21 @@ export const guest = (() => {
         const desktopEl = document.getElementById('root')?.querySelector('.d-sm-block');
         if (!desktopEl) {
             return;
+        }
+        
+        // Đảm bảo observer không null trước khi sử dụng
+        let observer = null;
+        // Khởi tạo observer trước khi sử dụng
+        if (!observer) {
+            observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.play().catch(err => console.log('Video play failed:', err));
+                    } else {
+                        entry.target.pause();
+                    }
+                });
+            });
         }
 
         desktopEl.dispatchEvent(new Event('undangan.slide.stop'));
@@ -213,6 +230,16 @@ export const guest = (() => {
             navigator.vibrate(500);
         }
 
+        // Dispatch event khi mở story
+        document.dispatchEvent(new Event('story.open'));
+        
+        // Remove bg-overlay-auto from video container
+        const videoContainer = document.getElementById('video-love-stroy');
+        const overlayElements = videoContainer.getElementsByClassName('bg-overlay-auto');
+        Array.from(overlayElements).forEach(el => {
+            el.classList.remove('bg-overlay-auto');
+        });
+        
         confetti.tapTapAnimation(div, 100);
         util.changeOpacity(div, false).then((e) => e.remove());
     };
@@ -302,7 +329,7 @@ export const guest = (() => {
             const bride = {
                 btn: '#btn-gcal-bride',
                 title: 'Lễ cưới – Nhà gái | Vũ Minh ❤️ Ngọc Ánh',
-                location: '84WQ+V23, ĐT284, Việt Lập, Tân Yên, Bắc Giang, Việt Nam',
+                location: '84WM+XHV Tân Yên, Bắc Giang, Việt Nam',
                 details: [
                 'Vũ Minh ❤️ Ngọc Ánh',
                 'Trân trọng kính mời bạn đến dự lễ cưới của chúng tôi. Sự hiện diện của bạn là niềm vinh hạnh cho gia đình chúng tôi.',
@@ -338,6 +365,83 @@ export const guest = (() => {
         };
     };
 
+
+    /**
+     * Render mini calendar theo data-time trên <body>.
+     * - Bắt đầu tuần: Thứ 2
+     * - Tô tròn ngày cưới
+     */
+    const buildMiniCalendar = () => {
+        const mount = document.getElementById('mini-calendar');
+        if (!mount) return;
+
+        // Lấy ngày cưới từ body (đã cập nhật 2025-11-02T...)
+        const raw = document.body.getAttribute('data-time') || '';
+        const target = new Date(raw.replace(' ', 'T'));
+        const year = target.getFullYear();
+        const month = target.getMonth(); // 0..11
+        const weddingDate = target.getDate();
+
+        // Header
+        const vnMonths = ['THÁNG 1','THÁNG 2','THÁNG 3','THÁNG 4','THÁNG 5','THÁNG 6','THÁNG 7','THÁNG 8','THÁNG 9','THÁNG 10','THÁNG 11','THÁNG 12'];
+        const head = document.createElement('div');
+        head.className = 'wm-cal__head text-center';
+        head.textContent = `${vnMonths[month]} / ${year}`;
+
+        // Weekdays (Thứ 2 .. CN)
+        const wd = document.createElement('div');
+        wd.className = 'wm-cal__weekdays';
+        ['Thứ 2','Thứ 3','Thứ 4','Thứ 5','Thứ 6','Thứ 7','CN'].forEach(t=>{
+            const s = document.createElement('div');
+            s.className = 'wm-cal__weekday';
+            s.textContent = t;
+            wd.appendChild(s);
+        });
+
+        // Days grid
+        const days = document.createElement('div');
+        days.className = 'wm-cal__days';
+
+        // Tính ô trống đầu tháng (tuần bắt đầu = Thứ 2)
+        const first = new Date(year, month, 1);
+        const last  = new Date(year, month + 1, 0);
+        const firstWeekday = (first.getDay() + 6) % 7; // Mon=0..Sun=6
+        const totalCells = firstWeekday + last.getDate();
+        const padTail = (7 - (totalCells % 7)) % 7;
+
+        // Ngày tháng trước (mờ)
+        const prevLast = new Date(year, month, 0).getDate();
+        for (let i = firstWeekday - 1; i >= 0; i--) {
+            const d = document.createElement('div');
+            d.className = 'wm-cal__day is-out';
+            d.textContent = String(prevLast - i);
+            days.appendChild(d);
+        }
+
+        // Ngày trong tháng
+        for (let dNum = 1; dNum <= last.getDate(); dNum++) {
+            const d = document.createElement('div');
+            d.className = 'wm-cal__day';
+            if (dNum === weddingDate) d.classList.add('is-wedding');
+            d.textContent = String(dNum);
+            days.appendChild(d);
+        }
+
+        // Ngày tháng sau (mờ)
+        for (let i = 1; i <= padTail; i++) {
+            const d = document.createElement('div');
+            d.className = 'wm-cal__day is-out';
+            d.textContent = String(i);
+            days.appendChild(d);
+        }
+
+        mount.innerHTML = '';
+        mount.appendChild(head);
+        mount.appendChild(wd);
+        mount.appendChild(days);
+    };
+
+
     /**
      * @returns {Promise<void>}
      */
@@ -348,6 +452,7 @@ export const guest = (() => {
         modalImageClick();
         normalizeArabicFont();
         buildGoogleCalendar();
+        buildMiniCalendar();
 
         if (information.has('presence')) {
             document.getElementById('form-presence').value = information.get('presence') ? '1' : '2';
@@ -382,6 +487,19 @@ export const guest = (() => {
         const lib = loaderLibs();
         const token = document.body.getAttribute('data-key');
         const params = new URLSearchParams(window.location.search);
+
+        
+        // Khởi tạo “Xem thêm ảnh”
+          galleryMore.init({
+            gridSelector: '.gallery-grid',
+            buttonSelector: '#btn-more-photos',
+            hintSelector: '#more-hint',
+            manifestUrl: './assets/images/data_Images/gallery.json',
+            batchSize: 10
+        });
+        // Khởi tạo form xác nhận tham dự
+        confirmInfo.init();
+
 
         window.addEventListener('resize', util.debounce(slide));
         document.addEventListener('undangan.progress.done', () => booting());
@@ -429,6 +547,7 @@ export const guest = (() => {
 
             }).catch(() => progress.invalid('config'));
         }
+      
     };
 
     /**

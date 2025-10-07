@@ -12,16 +12,16 @@ html {
 }
 
 .font-esthetic {
-    font-family: 'Sacramento', cursive !important;
+    font-family: 'Alex Brush', cursive !important;
 }
 
 .font-arabic {
-    font-family: 'Noto Naskh Arabic', serif !important;
+    font-family: 'Roboto', sans-serif !important;
 }
 
 .img-center-crop {
-    width: 22rem;
-    height: 22rem;
+    width: 18rem;
+    height: 18rem;
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
@@ -113,3 +113,189 @@ svg {
 .no-gap-bottom {
     margin-bottom: -0.75rem !important;
 }
+.fa-heart-fill{
+    color: red;
+    text-shadow: 0 0 2px rgba(255, 0, 0, 0.8);
+}
+.fa-heart-size{
+    font-size: 1.8rem;
+}
+
+
+/* ==== Album Hình Cưới ==== */
+.gallery-grid { /* khoảng cách cột đã có g-3, chỉ fix layout */
+  align-items: stretch;
+}
+
+.gallery-card {
+  position: relative;
+  aspect-ratio: 3 / 4;        /* đồng nhất tỉ lệ đứng, đẹp cho ảnh cưới */
+  overflow: hidden;
+  margin: 0;
+  background: rgba(0,0,0,.02);
+}
+
+html[data-bs-theme="dark"] .gallery-card {
+  background: rgba(255,255,255,.03);
+}
+
+.gallery-img {
+  object-fit: cover;
+  transition: transform .6s ease, filter .6s ease;
+  will-change: transform, filter;
+}
+
+.gallery-card:hover .gallery-img {
+  transform: scale(1.05);
+  filter: saturate(1.05) contrast(1.02);
+}
+
+/* điểm xuyết hình trái tim nhỏ */
+.gallery-card::after,
+.gallery-card::before {
+  content: "❤";
+  position: absolute;
+  font-size: 0.9rem;
+  color: #F14E95;
+  opacity: .65;
+  filter: drop-shadow(0 0 3px rgba(241,78,149,.35));
+  animation: float-heart 6s ease-in-out infinite;
+}
+.gallery-card::before { top: 6%; left: 8%; animation-delay: .2s; }
+.gallery-card::after  { bottom: 6%; right: 10%; animation-delay: 1s; }
+
+#btn-more-photos .spinner-border { vertical-align: -2px; }
+
+
+/* Tận dụng file animation.css để giữ phong cách chuyển động mượt */
+@keyframes float-heart {
+  0%,100% { transform: translateY(0) rotate(0deg); opacity: .65; }
+  50%     { transform: translateY(-6px) rotate(-8deg); opacity: .9; }
+}
+/* ==== /Album Hình Cưới ==== */
+
+/* Mini calendar */
+.wm-cal {
+  max-width: 460px;
+  background-color: rgb(var(--bs-white-rgb));      /* nền xanh xám như ảnh mẫu */
+  color: #02142b;
+  padding: 18px 18px 14px;
+  border: none;
+}
+.wm-cal .wm-cal__head {
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  opacity: .95;
+}
+.wm-cal .wm-cal__weekdays,
+.wm-cal .wm-cal__days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+}
+.wm-cal .wm-cal__weekday {
+  font-size: .85rem;
+  opacity: .85;
+}
+.wm-cal .wm-cal__day {
+  aspect-ratio: 1 / 1;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 999px;
+  font-weight: 500;
+  background: rgba(255,255,255,.06);
+}
+.wm-cal .wm-cal__day.is-out { opacity: .25; }
+.wm-cal .wm-cal__day.is-wedding {
+  background: #ffffff;
+  color: #3f5167;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25), inset 0 0 0 3px rgba(255,255,255,.9);
+}
+@media (max-width: 420px){
+  .wm-cal { padding: 14px; }
+  .wm-cal .wm-cal__weekdays, .wm-cal .wm-cal__days { gap: 8px; }
+}
+/* ==== Lời Ngỏ ==== */
+
+/* Nội dung căn trái trong khung hẹp */
+.wm-letter__body{
+  max-width: 25rem;                   /* ~672px */
+  margin-inline: auto;
+  text-align: left;                   /* căn trái như ảnh */
+}
+
+.wm-letter__body p{
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+  color: rgba(33, 37, 41, .9);        /* chữ xám đậm, dịu mắt */
+}
+
+/* Nếu muốn gạch trang trí mảnh bên dưới tiêu đề (tùy chọn) */
+.wm-letter::after{
+  content: "";
+  display: block;
+  width: 64px;
+  height: 2px;
+  margin: 10px auto 0;
+  background: currentColor;
+  opacity: .18;
+  border-radius: 2px;
+}
+
+/* ===== QR Cards (Nhà trai / Nhà gái) ===== */
+.qr-card{
+  border: 2px dotted rgba(108,117,125,.6);
+  border-radius: 1rem;
+  padding: 1.25rem 2.5rem 1rem;
+  background: var(--bs-body-bg);
+}
+
+.qr-title{
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  text-align: center;
+  margin: .25rem 0 1rem;
+  opacity: .9;
+}
+
+.qr-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: .75rem;
+}
+.qr-img{
+  width: 200px;     /* gần giống mẫu */
+  height: 200px;
+  object-fit: contain;
+  padding: .5rem;
+}
+
+.qr-info p{
+  font-size: .95rem;
+  margin: .25rem 0;
+}
+
+/* ===== Contact Cards ===== */
+.contact-card{
+  border: 1px solid var(--bs-border-color);
+  border-radius: 1rem;
+  padding: 1rem;
+  background: var(--bs-body-bg);
+}
+.contact-card .txt-copy{ white-space: nowrap; }
+
+/* Tối ưu hiển thị trên mobile */
+@media (max-width: 420px){
+  .qr-img{ width: 180px; height: 180px; }
+}
+
+#confirm-information .btn b { font-weight: 700; }
+#rsvp-card .form-label { font-weight: 500; }
+
+/* ===== /QR Cards (Nhà trai / Nhà gái) ===== */
+
+
+

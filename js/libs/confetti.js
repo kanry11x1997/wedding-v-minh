@@ -26,7 +26,7 @@ export const basicAnimation = () => {
  * @param {number} [until=15]
  * @returns {void}
  */
-export const openAnimation = (until = 15) => {
+export const openAnimation = (until = 30) => {
     if (!window.confetti) {
         return;
     }

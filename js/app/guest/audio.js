@@ -1,6 +1,7 @@
 import { progress } from './progress.js';
 import { util } from '../../common/util.js';
 import { cache } from '../../connection/cache.js';
+import { video } from './video.js';
 
 export const audio = (() => {
 
@@ -79,6 +80,15 @@ export const audio = (() => {
 
         music.addEventListener('offline', pause);
         music.addEventListener('click', () => isPlay ? pause() : play());
+
+        // Lắng nghe video play/pause
+        video.audioEvents.addEventListener('video.play', () => {
+            pause(); // Pause background music khi video play
+        });
+
+        video.audioEvents.addEventListener('video.pause', () => {
+            play(); // Resume background music khi video pause
+        });
     };
 
     /**
