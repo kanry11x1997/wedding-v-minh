@@ -682,7 +682,7 @@
                         <div id="rsvp-card" class="card shadow rounded-4 mx-auto" style="max-width:620px; display:none;">
                         <div class="card-body">
                             <div class="d-flex align-items-center justify-content-between">
-                            <h5 class="m-0">
+                            <h5 class="d-flex m-0">
                                 Xác nhận tham dự: <span id="rsvp-side" class="badge text-bg-secondary">—</span>
                             </h5>
                             <button type="button" id="rsvp-close" class="btn btn-sm btn-link text-decoration-none">
@@ -695,13 +695,13 @@
                             <input type="hidden" name="side" id="input-side" value="">
                             <div class="mb-3">
                                 <label class="form-label">Họ và tên</label>
-                                <input type="text" class="form-control rounded-4 shadow-sm" name="name" id="input-name"
+                                <input type="text" autocomplete="off" class="form-control rounded-4 shadow-sm" name="name" id="input-name"
                                     placeholder="Nhập họ tên của bạn" minlength="2" required>
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label">Số điện thoại</label>
-                                <input type="tel" class="form-control rounded-4 shadow-sm" name="phone" id="input-phone"
+                                <input type="tel" autocomplete="off" class="form-control rounded-4 shadow-sm" name="phone" id="input-phone"
                                     placeholder="Ví dụ: 09xxxxxxxx" pattern="^[0-9\s\+\-]{8,15}$" required>
                             </div>
 
@@ -715,8 +715,8 @@
                                 </select>
                             </div>
 
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-primary btn-sm rounded-4 shadow">
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary btn-sm rounded-4 shadow" style="width: 300px;">
                                 <i class="fa-solid fa-paper-plane me-2"></i>Xác nhận
                                 </button>
                             </div>
@@ -724,8 +724,8 @@
                         </div>
                     </div>
 
-                        <!-- thông báo -->
-                        <div id="rsvp-alert" class="alert alert-success rounded-4 mt-3 d-none" role="alert"></div>
+                    <!-- thông báo -->
+                    <div id="rsvp-alert" class="alert alert-success rounded-4 mt-3 d-none" role="alert"></div>
                     </div>
                 </section>
 
