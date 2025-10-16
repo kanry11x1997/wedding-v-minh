@@ -170,6 +170,40 @@ export const guest = (() => {
         util.timeOut(loop, interval);
     };
 
+    // // --- Falling Hearts (Welcome) ---
+    let heartsTimer = null;
+    const hearts = {
+        make() {
+            const welcome = document.getElementById('welcome');
+            if (!welcome || welcome.style.display === 'none' || welcome.hidden) {
+                hearts.stop(); return;
+            }
+            const h = document.createElement('div');
+            h.className = 'fall-heart';
+            h.textContent = ['💗','💖','💘','❤️'][Math.floor(Math.random()*4)];
+            h.style.left = (Math.random()*100).toFixed(2) + 'vw';
+            h.style.setProperty('--dur', (7+Math.random()*6).toFixed(2) + 's');
+            h.style.setProperty('--fs', (14+Math.random()*26).toFixed(0) + 'px');
+            h.style.setProperty('--o', (0.65+Math.random()*0.35).toFixed(2));
+            welcome.appendChild(h);
+            const life = parseFloat(getComputedStyle(h).getPropertyValue('--dur'))*1000 + 500;
+            setTimeout(() => h.remove(), life);
+        },
+        start() {
+            if (heartsTimer) return;
+            // tạo vài hạt đầu cho đẹp
+            for (let i=0;i<6;i++) setTimeout(hearts.make, i*200);
+            heartsTimer = setInterval(hearts.make, 400);
+        },
+        stop() {
+            clearInterval(heartsTimer);
+            heartsTimer = null;
+            document.querySelectorAll('#welcome .fall-heart').forEach(n => n.remove());
+        }
+    };
+
+
+
     /**
      * @param {HTMLButtonElement} button
      * @returns {void}
@@ -191,6 +225,9 @@ export const guest = (() => {
 
         document.dispatchEvent(new Event('undangan.open'));
         util.changeOpacity(document.getElementById('welcome'), false).then((el) => el.remove());
+        if (typeof hearts !== 'undefined' && hearts && typeof hearts.stop === 'function') {
+            hearts.stop();
+        }
     };
 
     /**
@@ -199,7 +236,6 @@ export const guest = (() => {
      */
     const modal = (img) => {
         document.getElementById('button-modal-click').setAttribute('href', img.src);
-        document.getElementById('button-modal-download').setAttribute('data-src', img.src);
 
         const i = document.getElementById('show-modal-image');
         i.src = img.src;
@@ -465,6 +501,8 @@ export const guest = (() => {
         // wait until welcome screen is show.
         await util.changeOpacity(document.getElementById('welcome'), true);
 
+
+        hearts.start();
         // remove loading screen and show welcome screen.
         await util.changeOpacity(document.getElementById('loading'), false).then((el) => el.remove());
     };
@@ -504,9 +542,6 @@ export const guest = (() => {
         window.addEventListener('resize', util.debounce(slide));
         document.addEventListener('undangan.progress.done', () => booting());
         document.addEventListener('hide.bs.modal', () => document.activeElement?.blur());
-        document.getElementById('button-modal-download').addEventListener('click', (e) => {
-            img.download(e.currentTarget.getAttribute('data-src'));
-        });
 
         if (!token || token.length <= 0) {
             document.getElementById('comment')?.remove();

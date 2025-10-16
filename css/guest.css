@@ -298,4 +298,119 @@ html[data-bs-theme="dark"] .gallery-card {
 /* ===== /QR Cards (Nhà trai / Nhà gái) ===== */
 
 
+/* Falling hearts on Welcome – FIX */
+  .fall-heart{
+  position: fixed;
+  top: -8vh;                 /* rơi từ trên xuống bằng top */
+  left: 0;
+  z-index: 9999;
+  pointer-events: none;
+  user-select: none;
+  font-size: var(--fs, 22px);
+  opacity: var(--o, 0.9);
+  filter: drop-shadow(0 2px 2px rgba(241,78,149,.25));
+  /* rơi = top ; lắc + xoay = transform  */
+  animation:
+      heart-fall var(--dur, 9s) linear forwards,
+      heart-sway  calc(var(--dur, 9s)*.6) ease-in-out infinite alternate;
+  }
+
+  @keyframes heart-fall {
+  from { top: -8vh; }
+  to   { top: 108vh; }
+  }
+
+  @keyframes heart-sway {
+  from { transform: translateX(-18px) rotate(0deg); }
+  to   { transform: translateX(18px)  rotate(360deg); }
+  }
+
+
+ /* ==== THIỆP CƯỚI MÀU ĐỎ === */
+#welcome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #f8f8f8;
+}
+
+/* Khung thiệp chính */
+.envelope-card {
+  position: relative;
+  width: min(600px, 90vw);
+  aspect-ratio: 16 / 10;
+  background: url("../assets/images/envenlope2.png") center/cover no-repeat;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Lớp phủ mờ để nổi bật nội dung */
+.envelope-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(1px);
+}
+
+/* Nội dung trong thiệp */
+.envelope-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+}
+
+/* Tiêu đề "The Wedding Of" */
+.envelope-inner h2.title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+/* Ảnh tròn ở giữa thiệp */
+.envelope-inner img.photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Tên cô dâu chú rể */
+.envelope-inner h2.names {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 1rem;
+}
+
+/* Nút mở thiệp */
+.envelope-inner button.open-btn {
+  margin-top: 1.25rem;
+  background: #fff;
+  color: #a10000;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 22px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+  transition: all 0.25s ease;
+}
+.envelope-inner button.open-btn:hover {
+  background: #a10000;
+  color: #fff;
+}
+
+
 
