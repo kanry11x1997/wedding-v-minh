@@ -257,6 +257,24 @@ export const guest = (() => {
         });
     };
 
+    // ==== gắn click cho ảnh phong bì ngoài ====
+    const bindEnvelopeClick = () => {
+        const fig = document.getElementById('envelope-hero');
+        const btn = document.getElementById('welcome-open-btn');
+        if (!fig || !btn) return;
+
+        const go = (e) => {
+            e.preventDefault();
+            undangan.guest.open(btn);
+        };
+
+        fig.addEventListener('click', go);
+        // hỗ trợ bàn phím
+        fig.addEventListener('keydown', (ev) => {
+            if (ev.key === 'Enter' || ev.key === ' ') go(ev);
+        });
+    };
+
     /**
      * @param {HTMLDivElement} div 
      * @returns {void}
@@ -313,23 +331,6 @@ export const guest = (() => {
          * @param {string} d 
          * @returns {string}
          */
-        // const formatDate = (d) => {
-        //     // Chuyển đổi thành múi giờ Việt Nam (+7)
-        //     const date = new Date(d.replace(' ', 'T') + '+07:00');
-        //     return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
-        // };
-
-        // const url = new URL('https://calendar.google.com/calendar/render');
-        //  const data = new URLSearchParams({
-        //     action: 'TEMPLATE',
-        //     text: 'Lễ cưới Vũ Minh & Ngọc Ánh', 
-        //     dates: `${formatDate('2025-11-03 09:00')}/${formatDate('2025-11-03 17:00')}`,
-        //     details: 'Trân trọng kính mời bạn đến dự lễ cưới của chúng tôi. Sự hiện diện của bạn là niềm vinh hạnh cho gia đình chúng tôi.',
-        //     location: '83RV+FGV, Ngọc Thiện, Tân Yên, Bắc Giang, Việt Nam',
-        //     ctz: 'Asia/Hanoi',
-        //     sf: 'true',
-        //     output: 'xml',
-        // });
 
          const formatDate = (d) => {
             // Chuyển đổi thành múi giờ Việt Nam (+7)
@@ -489,6 +490,7 @@ export const guest = (() => {
         normalizeArabicFont();
         buildGoogleCalendar();
         buildMiniCalendar();
+        bindEnvelopeClick();
 
         if (information.has('presence')) {
             document.getElementById('form-presence').value = information.get('presence') ? '1' : '2';
@@ -505,6 +507,7 @@ export const guest = (() => {
         hearts.start();
         // remove loading screen and show welcome screen.
         await util.changeOpacity(document.getElementById('loading'), false).then((el) => el.remove());
+        
     };
 
     /**

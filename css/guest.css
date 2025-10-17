@@ -86,17 +86,6 @@ html[data-bs-theme="dark"] .bg-white-black {
     cursor: pointer;
 }
 
-@media screen and (max-width: 992px) {
-    .width-loading {
-        width: 50%;
-    }
-}
-
-@media screen and (max-width: 576px) {
-    .width-loading {
-        width: 75%;
-    }
-}
 
 svg {
     display: block;
@@ -121,6 +110,9 @@ svg {
     font-size: 1.8rem;
 }
 
+.title-bride{
+  font-size: 1.9rem !important;
+}
 
 /* ==== Album Hình Cưới ==== */
 .gallery-grid { /* khoảng cách cột đã có g-3, chỉ fix layout */
@@ -139,6 +131,28 @@ html[data-bs-theme="dark"] .gallery-card {
   background: rgba(255,255,255,.03);
 }
 
+.title-home-name{
+  font-family: 'Alex Brush', cursive;
+  font-size: 52px; /* Tăng size lên */
+  font-weight: 400;
+  text-shadow: 1px 1px 2px rgba(231, 96, 96, 0.2); /* Thêm shadow nhẹ */
+}
+.style-btn-good #btn-gcal-groom{
+          background: white;
+          color: rgb(212, 175, 55);
+          border: 2px solid rgb(212, 175, 55);
+          font-weight: 600;
+          transition: all 0.3s ease;
+}
+.style-btn-good #btn-gcal-groom:hover {
+          background: rgb(212, 175, 55);
+          color: white;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 15px rgba(212, 175, 55, 0.4) !important;
+}
+.border-selected {
+  border: 2px solid rgb(37, 37, 37) !important;
+}
 .gallery-img {
   object-fit: cover;
   transition: transform .6s ease, filter .6s ease;
@@ -246,7 +260,7 @@ html[data-bs-theme="dark"] .gallery-card {
 
 /* ===== QR Cards (Nhà trai / Nhà gái) ===== */
 .qr-card{
-  border: 2px dotted rgba(108,117,125,.6);
+  border: 2px dotted rgb(255, 218, 224);
   border-radius: 1rem;
   padding: 1.25rem 2.5rem 1rem;
   background: var(--bs-body-bg);
@@ -332,8 +346,16 @@ html[data-bs-theme="dark"] .gallery-card {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #f8f8f8;
+  background: #fff4f4;
+  padding: 16px 14px;
+  text-align:center;
 }
+/* Khung nội dung để giới hạn chiều rộng */
+#welcome .welcome-wrap{
+  width: min(95vw, 980px);
+  margin: 0 auto;
+}
+
 
 /* Khung thiệp chính */
 .envelope-card {
@@ -412,5 +434,120 @@ html[data-bs-theme="dark"] .gallery-card {
   color: #fff;
 }
 
+/*  Hero Section */
+.envelope-hero{ display:block; width:min(92vw,860px); margin-inline:auto; cursor:pointer; }
+.envelope-hero-img{
+  width:100%; display:block; border-radius:24px; box-shadow:0 24px 60px rgba(0,0,0,.22);
+  animation:pulse 3.5s ease-in-out 1s infinite; will-change:transform;
+}
+.envelope-hero:hover .envelope-hero-img{ transform:scale(1.02); }
+
+@keyframes pulse{ 0%,100%{transform:scale(1)} 50%{transform:scale(1.035)} }
+
+.envelope-caption{
+  margin-top:.75rem; text-align:center; font-weight:600; letter-spacing:.18em;
+  font-size:.9rem; opacity:.8; user-select:none;
+}
+
+.visually-hidden{
+  position:absolute!important; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0);
+  clip-path:inset(50%); white-space:nowrap; border:0; padding:0; margin:-1px;
+}
+/* Tiêu đề “Thiệp mời cưới” */
+.invite-title{
+  /* dùng clamp để responsive mượt, tối đa ~2.75rem */
+  font-size: clamp(1.6rem, 2.2vw + 1.2rem, 2.75rem);
+  margin: 0 0 10px 0;
+  line-height: 1.15;
+  letter-spacing: .02em;
+  text-shadow: 0 2px 12px rgba(0,0,0,.08);
+  animation: fadeSlide .7s ease-out both;
+}
+
+/* gạch mảnh trang trí dưới tiêu đề (nhẹ, có thể bỏ nếu không thích) */
+.invite-title::after{
+  content: "";
+  display: block;
+  width: 220px;
+  height: 2px;
+  margin: 8px auto 4px;
+  background: currentColor;
+  opacity: .25;
+  border-radius: 2px;
+}
+
+/* Hiệu ứng xuất hiện nhẹ cho tiêu đề */
+@keyframes fadeSlide{
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Khối phong bì (đã có ở trước, giữ nguyên nếu bạn đã thêm) */
+.envelope-hero{ display:block; width:min(92vw,860px); margin-inline:auto; cursor:pointer; }
+
+.envelope-hero:hover .envelope-hero-img{ transform:scale(1.02); }
+
+@keyframes pulse{ 0%,100%{transform:scale(1)} 50%{transform:scale(1.035)} }
+
+.envelope-caption{
+  margin-top:.75rem; text-align:center; font-weight:600; letter-spacing:.18em;
+  font-size:.9rem; opacity:.8; user-select:none;
+}
+
+.visually-hidden{
+  position:absolute!important; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0);
+  clip-path:inset(50%); white-space:nowrap; border:0; padding:0; margin:-1px;
+}
+.customer-mb-btn{
+   display: none !important;
+}
+
+/* tinh chỉnh nhỏ trên mobile */
+@media (max-width: 420px){
+  .invite-title::after{ width: 88px; }
+  .envelope-hero-img{ height: 50%;}
+  .envelope-caption{ font-size:.85rem; letter-spacing:.16em; }
+   .customer-mb-btn{
+      display: flex !important;
+    }
+    .customer-desktop-btn{
+      display: none !important;
+    }
+    .title-bride{
+      font-size: 1.5rem !important;
+    }
+}
+@media screen and (max-width: 992px) {
+    .width-loading {
+        width: 50%;
+    }
+    .envelope-hero-img{ height: 50%;}
+    
+    .customer-mb-btn{
+      display: flex !important;
+    }
+    .customer-desktop-btn{
+      display: none !important;
+    }
+    .title-bride{
+      font-size: 1.5rem !important;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .width-loading {
+        width: 75%;
+    }
+    .envelope-hero-img{ height: 50%;}
+     .customer-mb-btn{
+      display: flex !important;
+    }
+    .customer-desktop-btn{
+      display: none !important;
+    }
+    .title-bride{
+        font-size: 1.5rem !important;
+    }
+}
 
 

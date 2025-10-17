@@ -107,12 +107,24 @@ html[data-bs-theme="light"] .bg-overlay-auto {
     background-color: rgba(var(--bs-white-rgb), 0.5);
     backdrop-filter: blur(0.25rem);
 }
-.btn:hover {
-    color: rgb(var(--bs-dark-rgb));
-    background-color: #b1b1b0;
-    border-color: #b1b1b0;
+.btn-customer{
+  background-color: rgb(121, 113, 113);
+  color: rgb(241, 243, 244);
+  border: 1px solid rgb(121, 113, 113);
+  padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
 }
 
+.btn-customer:hover {
+    color: rgb(var(--bs-dark-rgb));
+    background-color:rgb(209 162 162);
+    border-color: rgb(209 162 162); 
+}
+.border-customem {
+    border-color: rgb(121, 113, 113) !important;
+}
+.border{
+  border: 2px solid rgb(255, 218, 224) !important;
+}
 .hover-area {
     display: none;
     cursor: pointer;
@@ -142,6 +154,15 @@ html[data-bs-theme="light"] .bg-overlay-auto {
   --love-color: #F14E95;
   --orbit-gap: 20px;            /* khoảng cách tim so với viền ảnh */
   --orbit-duration: 8s;
+}
+.customer-color-grent {
+  color: rgb(136, 0, 0);
+}
+.customer-color-ladi{
+  color: rgb(84, 83, 83);
+}
+.customer-color-pink{
+  color: rgb(231, 96, 96);
 }
 
 /* block bạn đã có */
