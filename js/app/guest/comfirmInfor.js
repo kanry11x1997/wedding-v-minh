@@ -15,7 +15,7 @@ export const confirmInfo = {
     const setSide = (side) => {
       inputSide.value = side;               // groom | bride
       sideBadge.textContent = side === 'groom' ? 'Nhà trai' : 'Nhà gái';
-      sideBadge.className = 'badge ' + (side==='groom' ? 'text-bg-primary' : 'text-bg-pink');
+      sideBadge.className = 'badge ' + (side==='groom' ? 'text-custom-address-groom' : 'text-custom-address-bride ');
     };
 
     const openForm = (side) => {
@@ -38,78 +38,68 @@ export const confirmInfo = {
       bride:
         'https://script.google.com/macros/s/wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww/exec',
     };
+    const ENDPOINT2 = 'https://script.google.com/macros/s/AKfycbwHOfxwEqB3vVIBTT47fsNGyH9Ijl-Tz9xRMY3PjThKx7bwUK0h6ZcwtLhS6aEpec1U/exec';
     //bride sẽ thay sau
-    form.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      // kiểm tra nhanh
-      if(!form.checkValidity()){
-        form.classList.add('was-validated');
-        return;
-      }
-      debugger;
-      const side = inputSide.value; // xác định bên hiện tại
-      const endpoint = GAS_URL[side];
-      if (!endpoint) {
-        alertBox.textContent =
-          'Chưa cấu hình URL nhận dữ liệu cho ' +
-          (side === 'groom' ? 'nhà trai' : 'nhà gái') +
-          '.';
-        alertBox.classList.remove('d-none');
-        return;
-      }
-   
-      // gửi dữ liệu
-      const data = {
-        side, // 'groom' | 'bride'
-        name: el('input-name').value.trim(),
-        phone: el('input-phone').value.trim(),
-        status: el('input-status').value,
-      };
+      form.addEventListener('submit', async (e) => {
+            e.preventDefault();
 
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const oldText = submitBtn.innerHTML;
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status"></span>Đang gửi...';
-      
-      const fd = new FormData();
-      Object.entries(data).forEach(([k,v]) => fd.append(k, v));
+            if (!form.checkValidity()) {
+              form.classList.add('was-validated');
+              return;
+            }
 
-       try {
-          const res = await fetch(endpoint, {
-            method: 'POST',
-            body: fd, // KHÔNG đặt Content-Type -> trình duyệt tự set multipart/form-data
-          });
+            const side = inputSide.value; // 'groom' | 'bride'
+            const endpoint = GAS_URL[side];
+            if (!endpoint) {
+              alertBox.textContent = 'Chưa cấu hình URL nhận dữ liệu cho ' + (side === 'groom' ? 'nhà trai' : 'nhà gái') + '.';
+              alertBox.classList.remove('d-none');
+              return;
+            }
 
+          // chuẩn bị body kiểu x-www-form-urlencoded (tránh preflight)
+          const params = new URLSearchParams();
+          const name   = el('input-name').value.trim();
+          const phone  = el('input-phone').value.trim();
+          const status = el('input-status').value;
 
-          const text = await res.text();
-          let json;
+          params.append('side', side);
+          params.append('name', name);
+          params.append('phone', phone);
+          params.append('status', status);
+
+          const submitBtn = form.querySelector('button[type="submit"]');
+          const oldText = submitBtn.innerHTML;
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status"></span>Đang gửi...';
+
           try {
-            json = JSON.parse(text);
-          } catch {
-            // Server trả về HTML / không phải JSON
-            json = { ok: false, message: text };
+            const response = await fetch(ENDPOINT2, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+              body: params.toString(),
+            });
+
+            const raw = await response.text();
+            let json;
+            debugger;
+            try { json = JSON.parse(raw); } catch { json = { ok: response.ok, message: raw }; }
+
+            if (!response.ok || !json.ok) {
+              throw new Error(json.message || `HTTP ${response.status}`);
+            }
+
+            alertBox.textContent = `Cảm ơn ${name}! Xác nhận đã được ghi nhận.`;
+            alertBox.classList.remove('d-none');
+            form.reset();
+            form.classList.remove('was-validated');
+          } catch (err) {
+            alertBox.textContent = `Có lỗi xảy ra: ${String(err)}`;
+            alertBox.classList.remove('d-none');
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = oldText;
+            setTimeout(() => alertBox.classList.add('d-none'), 4000);
           }
-
-          if (!res.ok || !json.ok) {
-            throw new Error(json.message || `HTTP ${res.status}`);
-          } 
-          console.log("err",json)
-          // OK: báo thành công
-          alertBox.textContent = `Cảm ơn ${data.name}! Xác nhận đã được ghi nhận.`;
-          alertBox.classList.remove('d-none');
-
-          // reset form
-          form.reset();
-          form.classList.remove('was-validated');
-        } catch (err) {
-          alertBox.textContent = `Có lỗi xảy ra: ${String(err)}`;
-          alertBox.classList.remove('d-none');
-        } finally {
-          // mở nút lại
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = oldText;
-          setTimeout(() => alertBox.classList.add('d-none'), 4000);
-        }
-    });
+        });
   }
 };

@@ -25,6 +25,7 @@ html {
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
+    object-position: top;
 }
 
 html[data-bs-theme="dark"] .btn-transparent {
@@ -46,7 +47,7 @@ html[data-bs-theme="light"] .btn-transparent {
 }
 
 html[data-bs-theme="light"] .color-theme-svg {
-    color: rgb(255, 255, 255);
+    color: rgb(237, 237, 237);
     background-color: var(--bs-light);
 }
 
@@ -75,7 +76,7 @@ html[data-bs-theme="dark"] .bg-white-black {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    mask-image: linear-gradient(0.5turn, transparent, black 40%, black 60%, transparent);
+    /* mask-image: linear-gradient(0.5turn, transparent, black 40%, black 60%, transparent); */
 }
 
 .width-loading {
@@ -84,6 +85,9 @@ html[data-bs-theme="dark"] .bg-white-black {
 
 .cursor-pointer {
     cursor: pointer;
+}
+.border-color-header{
+    border: 1px solid rgb(var(--bs-black-rgb));
 }
 
 
@@ -131,28 +135,82 @@ html[data-bs-theme="dark"] .gallery-card {
   background: rgba(255,255,255,.03);
 }
 
-.title-home-name{
+.title-name{
   font-family: 'Alex Brush', cursive;
   font-size: 52px; /* Tăng size lên */
   font-weight: 400;
   text-shadow: 1px 1px 2px rgba(231, 96, 96, 0.2); /* Thêm shadow nhẹ */
 }
-.style-btn-good #btn-gcal-groom{
-          background: white;
-          color: rgb(212, 175, 55);
-          border: 2px solid rgb(212, 175, 55);
-          font-weight: 600;
-          transition: all 0.3s ease;
+.style-btn-good #btn-gcal-groom,
+.style-map-groom 
+{
+    background: white;
+    color: rgb(212, 175, 55);
+    border: 1px solid rgb(212, 175, 55);
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
-.style-btn-good #btn-gcal-groom:hover {
-          background: rgb(212, 175, 55);
-          color: white;
-          transform: translateY(-2px);
-          box-shadow: 0 6px 15px rgba(212, 175, 55, 0.4) !important;
+.style-btn-good #btn-gcal-groom:hover,
+.style-map-groom:hover {
+    background: rgb(212, 175, 55);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(212, 175, 55, 0.4) !important;
 }
-.border-selected {
-  border: 2px solid rgb(37, 37, 37) !important;
+ .style-btn-good #btn-gcal-bride,
+ .style-map-bride
+ {
+    background: white;
+    color: rgb(231, 96, 96);
+    border: 2px solid rgb(231, 96, 96);
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
+.text-custom-address-groom {
+    color: rgb(212, 175, 55);
+}
+.text-custom-address-bride {
+    color: rgb(231, 96, 96);
+}
+
+.style-btn-good #btn-gcal-bride:hover
+,.style-map-bride:hover 
+{
+    background: rgb(231, 96, 96);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(231, 96, 96, 0.4) !important;
+}
+
+.see-button {
+    background: rgb(212, 175, 55);
+    color: white;
+    border: none;
+    padding: 10px 0px;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 10px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s;
+}
+ .see-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(212, 175, 55, 0.4);
+}
+
+.see-button-secondary {
+    background: white;
+    color: rgb(231, 96, 96);
+    border: 2px solid rgb(231, 96, 96);
+}
+
+.see-button-secondary:hover {
+    background: rgb(231, 96, 96);
+    color: white;
+}
+
 .gallery-img {
   object-fit: cover;
   transition: transform .6s ease, filter .6s ease;
@@ -180,6 +238,12 @@ html[data-bs-theme="dark"] .gallery-card {
 
 #btn-more-photos .spinner-border { vertical-align: -2px; }
 
+.map-google{
+  display: inline-block;
+  padding: 6px 0px;
+  margin-top: 8px;
+}
+
 
 /* Tận dụng file animation.css để giữ phong cách chuyển động mượt */
 @keyframes float-heart {
@@ -191,12 +255,12 @@ html[data-bs-theme="dark"] .gallery-card {
 /* Mini calendar */
 .wm-cal {
   max-width: 460px;
-  background-color: rgb(var(--bs-white-rgb));      /* nền xanh xám như ảnh mẫu */
-  color: #02142b;
+  background-color: rgb(var(--bs-white-rgb));    
   padding: 18px 18px 14px;
-  border: none;
+  border: 3px solid rgb(187 15 15 / 40%)
 }
 .wm-cal .wm-cal__head {
+  color:rgb(84, 83, 83);
   font-weight: 600;
   letter-spacing: .06em;
   text-transform: uppercase;
@@ -208,6 +272,7 @@ html[data-bs-theme="dark"] .gallery-card {
   grid-template-columns: repeat(7, 1fr);
   gap: 10px;
   margin-top: 14px;
+  color:rgb(26, 26, 28);
 }
 .wm-cal .wm-cal__weekday {
   font-size: .85rem;
@@ -222,9 +287,9 @@ html[data-bs-theme="dark"] .gallery-card {
 }
 .wm-cal .wm-cal__day.is-out { opacity: .25; }
 .wm-cal .wm-cal__day.is-wedding {
-  background: #ffffff;
+  background: rgb(250 161 159);
   color: #3f5167;
-  box-shadow: 0 6px 18px rgba(0,0,0,.25), inset 0 0 0 3px rgba(255,255,255,.9);
+  box-shadow: 0 6px 18px rgba(0,0,0,.25), inset 0 0 0 0px rgba(255,255,255,.9);
 }
 @media (max-width: 420px){
   .wm-cal { padding: 14px; }
@@ -272,6 +337,7 @@ html[data-bs-theme="dark"] .gallery-card {
   text-align: center;
   margin: .25rem 0 1rem;
   opacity: .9;
+  color: rgb(231, 97, 97);;
 }
 
 .qr-box{
@@ -281,10 +347,10 @@ html[data-bs-theme="dark"] .gallery-card {
   margin-bottom: .75rem;
 }
 .qr-img{
-  width: 200px;     /* gần giống mẫu */
-  height: 200px;
+  width: 500px;     /* gần giống mẫu */
   object-fit: contain;
   padding: .5rem;
+  border-radius: 20px !important;
 }
 
 .qr-info p{
@@ -301,6 +367,24 @@ html[data-bs-theme="dark"] .gallery-card {
 }
 .contact-card .txt-copy{ white-space: nowrap; }
 
+
+/* Slide ảnh */
+
+.carousel-inner.fit-mode {
+  max-height: 500px;
+  background: #f5f5f5;      /* màu nền khi ảnh không lấp đầy */
+}
+.carousel-inner.fit-mode .carousel-item { height: 100%; }
+.carousel-inner.fit-mode .carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;      /* hiển thị toàn bộ ảnh, có letterbox */
+  object-position: center;
+  display: block;
+}
+
+
+
 /* Tối ưu hiển thị trên mobile */
 @media (max-width: 420px){
   .qr-img{ width: 180px; height: 180px; }
@@ -308,6 +392,12 @@ html[data-bs-theme="dark"] .gallery-card {
 
 #confirm-information .btn b { font-weight: 700; }
 #rsvp-card .form-label { font-weight: 500; }
+
+#rsvp-card{
+   max-width: 620px;
+   background-color: rgb(255 236 236);
+   border: 2px solid rgb(255 200 200) !important;
+}
 
 /* ===== /QR Cards (Nhà trai / Nhà gái) ===== */
 
@@ -476,6 +566,8 @@ html[data-bs-theme="dark"] .gallery-card {
   border-radius: 2px;
 }
 
+
+
 /* Hiệu ứng xuất hiện nhẹ cho tiêu đề */
 @keyframes fadeSlide{
   from { opacity: 0; transform: translateY(-6px); }
@@ -501,6 +593,84 @@ html[data-bs-theme="dark"] .gallery-card {
 .customer-mb-btn{
    display: none !important;
 }
+.slide-desktop {
+  position: absolute;
+  left: 0; right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  max-height: 75rem; 
+}
+.slide-desktop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center; /* căn giữa mặc định */
+}
+.slide-desktop img { object-position: 50% 30%; }
+
+ #confirm-information #btn-rsvp-groom {
+      background: rgb(212, 175, 55);
+      color: white;
+      border: 2px solid rgb(212, 175, 55);
+      font-weight: 600;
+      transition: all 0.3s ease;
+  }
+  
+ #confirm-information #btn-rsvp-groom:hover {
+      background: rgb(184, 134, 11);
+      border-color: rgb(184, 134, 11);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(212, 175, 55, 0.4) !important;
+  }
+  
+  #confirm-information #btn-rsvp-bride {
+      background: rgb(231, 96, 96);
+      color: white;
+      border: 2px solid rgb(231, 96, 96);
+      font-weight: 600;
+      transition: all 0.3s ease;
+  }
+  
+  #confirm-information #btn-rsvp-bride:hover {
+      background: rgb(200, 70, 70);
+      border-color: rgb(200, 70, 70);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(231, 96, 96, 0.4) !important;
+  }
+
+.btn-switch-rsvp{
+  background-color: rgb(121, 113, 113);
+  color: rgb(241, 243, 244);
+  border: 1px solid rgb(121, 113, 113);
+  padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+}
+
+.btn-switch-rsvp:hover {
+    color: rgb(241, 243, 244);
+    background-color:rgb(209 162 162);
+    border-color: rgb(209 162 162); 
+}
+.confirm-information-img{
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+}
+
+ .btn-comfirmation {
+    width: 300px;
+    background: linear-gradient(135deg, rgb(212, 175, 55) 0%, rgb(231, 96, 96) 100%);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-comfirmation:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(220, 130, 75, 0.5) !important;
+    filter: brightness(1.1);
+}
 
 /* tinh chỉnh nhỏ trên mobile */
 @media (max-width: 420px){
@@ -515,6 +685,10 @@ html[data-bs-theme="dark"] .gallery-card {
     }
     .title-bride{
       font-size: 1.5rem !important;
+    }
+    .see-button{
+      padding: 4px 0px;
+      font-size: 14px;
     }
 }
 @media screen and (max-width: 992px) {
@@ -532,6 +706,10 @@ html[data-bs-theme="dark"] .gallery-card {
     .title-bride{
       font-size: 1.5rem !important;
     }
+    .see-button{
+      padding: 4px 0px;
+      font-size: 14px;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -547,6 +725,10 @@ html[data-bs-theme="dark"] .gallery-card {
     }
     .title-bride{
         font-size: 1.5rem !important;
+    }
+    .see-button{
+      padding: 4px 0px;
+      font-size: 14px;
     }
 }
 
