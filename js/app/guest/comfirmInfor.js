@@ -1,3 +1,6 @@
+
+import { toast } from './toastInfor.js';
+
 export const confirmInfo = {
   init: function() {
     const el = (id)=>document.getElementById(id);
@@ -14,7 +17,7 @@ export const confirmInfo = {
 
     const setSide = (side) => {
       inputSide.value = side;               // groom | bride
-      sideBadge.textContent = side === 'groom' ? 'Nhà trai' : 'Nhà gái';
+      sideBadge.textContent = side === 'groom' ? '* Nhà trai *' : '* Nhà gái *';
       sideBadge.className = 'badge ' + (side==='groom' ? 'text-custom-address-groom' : 'text-custom-address-bride ');
     };
 
@@ -32,13 +35,9 @@ export const confirmInfo = {
     });
     
     // THAY GAS_URL bằng URL Web App vừa triển khai
-    const GAS_URL = {
-      groom:
-        'https://script.google.com/macros/s/AKfycbwHOfxwEqB3vVIBTT47fsNGyH9Ijl-Tz9xRMY3PjThKx7bwUK0h6ZcwtLhS6aEpec1U/exec',
-      bride:
-        'https://script.google.com/macros/s/wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww/exec',
-    };
-    const ENDPOINT2 = 'https://script.google.com/macros/s/AKfycbwHOfxwEqB3vVIBTT47fsNGyH9Ijl-Tz9xRMY3PjThKx7bwUK0h6ZcwtLhS6aEpec1U/exec';
+
+    const ENDPOINT = 'https://script.google.com/macros/s/AKfycbwHOfxwEqB3vVIBTT47fsNGyH9Ijl-Tz9xRMY3PjThKx7bwUK0h6ZcwtLhS6aEpec1U/exec';
+
     //bride sẽ thay sau
       form.addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -47,15 +46,7 @@ export const confirmInfo = {
               form.classList.add('was-validated');
               return;
             }
-
-            const side = inputSide.value; // 'groom' | 'bride'
-            const endpoint = GAS_URL[side];
-            if (!endpoint) {
-              alertBox.textContent = 'Chưa cấu hình URL nhận dữ liệu cho ' + (side === 'groom' ? 'nhà trai' : 'nhà gái') + '.';
-              alertBox.classList.remove('d-none');
-              return;
-            }
-
+           const side = inputSide.value; // 'groom' | 'bride'
           // chuẩn bị body kiểu x-www-form-urlencoded (tránh preflight)
           const params = new URLSearchParams();
           const name   = el('input-name').value.trim();
@@ -66,6 +57,8 @@ export const confirmInfo = {
           params.append('name', name);
           params.append('phone', phone);
           params.append('status', status);
+          params.append('note', "Xác nhận tham dự wedding từ website");
+
 
           const submitBtn = form.querySelector('button[type="submit"]');
           const oldText = submitBtn.innerHTML;
@@ -73,7 +66,7 @@ export const confirmInfo = {
           submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status"></span>Đang gửi...';
 
           try {
-            const response = await fetch(ENDPOINT2, {
+            const response = await fetch(ENDPOINT, {
               method: 'POST',
               headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
               body: params.toString(),
@@ -81,24 +74,20 @@ export const confirmInfo = {
 
             const raw = await response.text();
             let json;
-            debugger;
             try { json = JSON.parse(raw); } catch { json = { ok: response.ok, message: raw }; }
 
             if (!response.ok || !json.ok) {
               throw new Error(json.message || `HTTP ${response.status}`);
             }
+            toast.success(`Cảm ơn <strong style="font-weight: 700;">${name}</strong>.Thật vui khi sắp được đón tiếp bạn tại ngày trọng đại của chúng mình ❤️`, 8668);
 
-            alertBox.textContent = `Cảm ơn ${name}! Xác nhận đã được ghi nhận.`;
-            alertBox.classList.remove('d-none');
             form.reset();
             form.classList.remove('was-validated');
           } catch (err) {
-            alertBox.textContent = `Có lỗi xảy ra: ${String(err)}`;
-            alertBox.classList.remove('d-none');
+             showToast('Có lỗi xảy ra: ' + String(err), 'danger');
           } finally {
             submitBtn.disabled = false;
             submitBtn.innerHTML = oldText;
-            setTimeout(() => alertBox.classList.add('d-none'), 4000);
           }
         });
   }

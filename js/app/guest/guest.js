@@ -401,7 +401,7 @@ export const guest = (() => {
             load,
         };
     };
-
+   
 
     /**
      * Render mini calendar theo data-time trên <body>.
@@ -538,6 +538,7 @@ export const guest = (() => {
             manifestUrl: './assets/images/data_Images/gallery.json',
             batchSize: 10
         });
+        
         // Khởi tạo form xác nhận tham dự
         confirmInfo.init();
 

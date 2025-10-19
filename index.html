@@ -99,7 +99,6 @@
                 </div>
                 <div class="text-center p-4 bg-overlay-auto rounded-5" style="display: none;">
                     <h2 class="font-esthetic mb-4 customer-color-pink" style="font-size: 2.16rem;">Vũ Minh <i class="fa-solid fa-heart mx-1 fa-heart-fill fa-heart-size"></i> Ngọc Ánh</h2>
-                    <!-- <p class="m-0 customer-color-ladi fw-bold" style="font-size: 1.3rem; font-style: italic;">Chủ nhật, 02 Tháng 11 Năm 2025</p> -->
                 </div>
             </div>
         </div>
@@ -119,7 +118,7 @@
                         <img src="./assets/images/NMNN5365.jpg" data-src="./assets/images/NMNN5365.jpg" alt="bg" onclick="undangan.guest.modal(this)" class="img-center-crop rounded-circle border border-3 border-light shadow my-4 mx-auto cursor-pointer">
 
                         <h2 class="font-esthetic my-4 customer-color-pink title-name">Vũ Minh <i class="fa-solid fa-heart mx-1 fa-heart-fill fa-heart-size"></i> Ngọc Ánh</h2>
-                       <p class="my-2 customer-color-ladi fw-bold" style="font-size: 1.3rem; font-style: italic;">Chủ nhật, 02 Tháng 11 Năm 2025</p>
+                       <p class="my-2 customer-color-ladi fw-bold" style="font-size: 1.5rem; font-style: italic;">Chủ nhật, 02 Tháng 11 Năm 2025</p>
                         <div class="d-flex justify-content-center gap-2 style-btn-good">
                             <button id="btn-gcal-groom" class="btn-customer btn-outline-auto btn-sm shadow rounded-pill px-3 py-1" style="font-size: .925rem;">
                                 <i class="fa-solid fa-calendar-check me-2"></i>Lưu lịch <span class="customer-desktop-btn">& Địa điểm</span> nhà trai
@@ -571,7 +570,7 @@
                                     </button>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <p class="m-0 me-2"><i class="fa-solid fa-location-dot me-2"></i><span>Thôn Đồng Lạng, Xã Ngọc Thiện, Tân Yên, Bắc Giang</span></p>
+                                    <p class="m-0 me-2"><i class="fa-solid fa-location-dot me-2"></i><span>Thôn Đồng Lạng, Xã Ngọc Thiện,Tỉnh Bắc Ninh</span></p>
                                 </div>
                                 </div>
                             </div>
@@ -587,7 +586,7 @@
                                     </button>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <p class="m-0 me-2"><i class="fa-solid fa-location-dot me-2"></i><span>Thôn Hàng Cơm, Xã Việt Lập, Tân Yên, Bắc Giang</span></p>
+                                    <p class="m-0 me-2"><i class="fa-solid fa-location-dot me-2"></i><span>Thôn Hàng Cơm, Xã Việt Lập,Tỉnh Bắc Ninh</span></p>
                                 </div>
                                 </div>
                             </div>
@@ -674,11 +673,11 @@
                         </div>
 
                         <!-- form RSVP (ẩn mặc định) -->
-                        <div id="rsvp-card" class="card shadow mx-auto" style="max-width:620px; display:none;">
+                        <div id="rsvp-card" class="card shadow mx-auto pt-3" style="display:none;">
                         <div class="card-body">
                             <div class="d-flex align-items-center justify-content-between">
-                            <h5  class="d-flex m-0 font-esthetic" style="font-size: 2.25rem;">
-                                Xác nhận tham dự: ✨ <span id="rsvp-side" class="badge text-bg-secondary">—</span>
+                            <h5  class="d-flex m-0 font-esthetic text-comfirm-box">
+                                Xác nhận tham dự: <span id="rsvp-side" class="badge text-bg-secondary">—</span>
                             </h5>
                             <button type="button" id="rsvp-close" class="btn-customer rounded-3 btn-sm btn-link text-decoration-none">
                                 Đổi bên
@@ -710,7 +709,7 @@
                                 </select>
                             </div>
 
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex justify-content-center" style="display: block;">
                                 <button type="submit" class="btn-comfirmation btn-outline-auto btn-sm shadow rounded-pill px-3 py-2">
                                 <i class="fa-solid fa-paper-plane me-2"></i>Xác nhận
                                 </button>
@@ -720,8 +719,10 @@
                     </div>
 
                     <!-- thông báo -->
-                    <div id="rsvp-alert" class="alert alert-success rounded-4 mt-3 d-none" role="alert"></div>
-                    </div>
+                    <!-- Toasts container (top-right) -->
+                    <div id="toast-container" class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1080;"></div>
+
+                </div>
                 </section>
 
                 <!-- End Of Invitation -->
