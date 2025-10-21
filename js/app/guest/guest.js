@@ -460,6 +460,7 @@ export const guest = (() => {
             const d = document.createElement('div');
             d.className = 'wm-cal__day';
             if (dNum === weddingDate) d.classList.add('is-wedding');
+            if (dNum === weddingDate - 1) d.classList.add('is-party');
             d.textContent = String(dNum);
             days.appendChild(d);
         }
