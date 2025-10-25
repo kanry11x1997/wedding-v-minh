@@ -10,7 +10,6 @@ import { lang } from '../../common/language.js';
 import { storage } from '../../common/storage.js';
 import { session } from '../../common/session.js';
 import { offline } from '../../common/offline.js';
-import { comment } from '../components/comment.js';
 import * as confetti from '../../libs/confetti.js';
 import { pool } from '../../connection/request.js';
 import { galleryMore } from './gallery-more.js';
@@ -517,7 +516,7 @@ export const guest = (() => {
     const pageLoaded = () => {
         lang.init();
         offline.init();
-        comment.init();
+        //comment.init();
         progress.init();
 
         config = storage('config');
@@ -581,9 +580,9 @@ export const guest = (() => {
                 aud.load();
                 lib.load({ confetti: data.is_confetti_animation });
 
-                comment.show()
-                    .then(() => progress.complete('comment'))
-                    .catch(() => progress.invalid('comment'));
+                // comment.show()
+                //     .then(() => progress.complete('comment'))
+                //     .catch(() => progress.invalid('comment'));
 
             }).catch(() => progress.invalid('config'));
         }
@@ -618,7 +617,7 @@ export const guest = (() => {
         return {
             util,
             theme,
-            comment,
+            // comment,
             guest: {
                 open,
                 modal,
